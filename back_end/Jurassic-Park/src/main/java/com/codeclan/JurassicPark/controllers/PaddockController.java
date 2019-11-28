@@ -20,6 +20,11 @@ public class PaddockController {
     public List<Paddock> getAllDepartments(){
         return paddockRepository.findAll();
     }
+    @GetMapping("{id}")
+    // returns if id is present and nul if id not present in the table
+    public Optional<Paddock> getDepartment(@PathVariable Long id){
+        return paddockRepository.findById(id);
+    }
 
 }
 
