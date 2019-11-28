@@ -2,16 +2,26 @@ package com.codeclan.JurassicPark.models.visitor;
 
 import com.codeclan.JurassicPark.models.paddocks.Paddock;
 
+import javax.persistence.*;
 import java.util.ArrayList;
-
+@Entity
+@Table(name ="visitors")
 public class Visitor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private Long id;
+    @Column(name="name")
     private String name ;
+    @Column(name="wallet")
     private int wallet;
-    private ArrayList<Paddock> visitedPaddocks;
-    public Visitor(String name ,int wallet){
+
+    public Visitor() {
+    }
+
+    public Visitor(String name , int wallet){
         this.name = name ;
         this.wallet = wallet;
-        this.visitedPaddocks= new ArrayList<Paddock>();
     }
 
     public String getName() {
@@ -22,22 +32,19 @@ public class Visitor {
         this.name = name;
     }
 
-    public ArrayList<Paddock> getVisitedPaddocks() {
-        return visitedPaddocks;
-    }
-
-    public void setVisitedPaddocks(ArrayList<Paddock> visitedPaddocks) {
-        this.visitedPaddocks = visitedPaddocks;
-    }
-    public void addVisitedPaddocks(Paddock paddock){
-        this.visitedPaddocks.add(paddock);
-    }
-
     public int getWallet() {
         return wallet;
     }
 
     public void setWallet(int wallet) {
         this.wallet = wallet;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

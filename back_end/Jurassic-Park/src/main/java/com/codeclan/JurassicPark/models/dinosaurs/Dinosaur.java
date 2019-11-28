@@ -1,24 +1,55 @@
 package com.codeclan.JurassicPark.models.dinosaurs;
 
+import com.codeclan.JurassicPark.models.paddocks.Paddock;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name ="dinosaurs")
 public class Dinosaur
 {
-    private Species species ;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private Long id;
+
+    @Column (name ="species")
+    private String species ;
+
+    @Column (name ="belly")
     private int belly;
-    private DinosaurType gender;
+
+    @Column (name ="gender")
+    private String gender;
+
+    @Column (name ="age")
     private int age;
 
-    public Dinosaur(Species species, int belly, DinosaurType gender, int age) {
+
+    @JsonIgnoreProperties("dinosaur")
+    @ManyToOne
+    @JoinColumn(name ="pad_id",nullable=false)
+    private Paddock paddock;
+
+
+    public Dinosaur(String species, int belly, String gender, int age ,Paddock paddock) {
         this.species = species;
         this.belly = belly;
         this.gender = gender;
         this.age = age;
+        this.paddock=paddock;
     }
 
-    public Species getSpecies() {
+    public Dinosaur() {
+    }
+
+    public String getSpecies() {
         return species;
     }
 
-    public void setSpecies(Species species) {
+    public void setSpecies(String species) {
         this.species = species;
     }
 
@@ -30,11 +61,11 @@ public class Dinosaur
         this.belly = belly;
     }
 
-    public DinosaurType getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(DinosaurType gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -44,5 +75,21 @@ public class Dinosaur
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Paddock getPaddock() {
+        return paddock;
+    }
+
+    public void setPaddock(Paddock paddock) {
+        this.paddock = paddock;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

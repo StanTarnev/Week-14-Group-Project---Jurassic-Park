@@ -1,6 +1,7 @@
 package com.codeclan.JurassicPark.models.food;
 
 public class Food{
+
     private FoodType foodType;
     private int foodQuantity;
 

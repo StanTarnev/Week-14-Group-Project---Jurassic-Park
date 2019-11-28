@@ -1,24 +1,39 @@
 package com.codeclan.JurassicPark.models.paddocks;
 
 import com.codeclan.JurassicPark.models.dinosaurs.Dinosaur;
-import com.codeclan.JurassicPark.models.visitor.Visitor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name="paddocks")
 public class Paddock {
-    private ArrayList<Dinosaur> dinosaurs;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private Long id;
+
+    @JsonIgnoreProperties("paddock")
+    @OneToMany(mappedBy = "paddock", fetch = FetchType.LAZY)
+    private List<Dinosaur> dinosaurs;
+
+    @Column(name = "paddockName")
     private String paddockName;
-    private ArrayList<Visitor> visitors;
+    @Column(name="capacity")
     private int capacity;
 
-    public Paddock(String paddock, int capacity) {
-        this.paddockName = paddock;
-        this.capacity = capacity;
-        this.dinosaurs=new ArrayList<>();
-        this.visitors=new ArrayList<>();
+    public Paddock() {
     }
 
-    public ArrayList<Dinosaur> getDinosaurs() {
+    public Paddock(String paddockName, int capacity) {
+        this.paddockName = paddockName;
+        this.capacity = capacity;
+        this.dinosaurs=new ArrayList<>();
+    }
+
+    public List<Dinosaur> getDinosaurs() {
         return dinosaurs;
     }
 
@@ -34,13 +49,6 @@ public class Paddock {
         this.paddockName = paddockName;
     }
 
-    public ArrayList<Visitor> getVisitors() {
-        return visitors;
-    }
-
-    public void setVisitors(ArrayList<Visitor> visitors) {
-        this.visitors = visitors;
-    }
 
     public int getCapacity() {
         return capacity;
@@ -52,8 +60,14 @@ public class Paddock {
     public void addDinosaur(Dinosaur dinosaur){
         this.dinosaurs.add(dinosaur);
     }
-    public void addVisitor(Visitor visitor){
-        this.visitors.add(visitor);
+
+    public Long getId() {
+        return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
 }
