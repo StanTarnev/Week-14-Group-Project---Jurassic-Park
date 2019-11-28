@@ -2,19 +2,19 @@ package com.codeclan.JurassicPark.models.food;
 
 public class Food{
 
-    private FoodType foodType;
+    private String foodType;
     private int foodQuantity;
 
-    public Food(FoodType foodType, int foodQuantity) {
+    public Food(String foodType, int foodQuantity) {
         this.foodType = foodType;
         this.foodQuantity = foodQuantity;
     }
 
-    public FoodType getFoodType() {
+    public String getFoodType() {
         return foodType;
     }
 
-    public void setFoodType(FoodType foodType) {
+    public void setFoodType(String foodType) {
         this.foodType = foodType;
     }
 

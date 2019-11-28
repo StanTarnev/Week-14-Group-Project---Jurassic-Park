@@ -30,16 +30,16 @@ public class Dinosaur
 
     @JsonIgnoreProperties("dinosaur")
     @ManyToOne
-    @JoinColumn(name ="pad_id",nullable=false)
+    @JoinColumn(name = "pad_id")
+
     private Paddock paddock;
 
 
-    public Dinosaur(String species, int belly, String gender, int age ,Paddock paddock) {
+    public Dinosaur(String species, int belly, String gender, int age) {
         this.species = species;
         this.belly = belly;
         this.gender = gender;
         this.age = age;
-        this.paddock=paddock;
     }
 
     public Dinosaur() {

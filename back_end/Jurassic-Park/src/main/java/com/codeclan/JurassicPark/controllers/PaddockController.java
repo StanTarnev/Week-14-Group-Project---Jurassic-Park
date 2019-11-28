@@ -17,12 +17,12 @@ public class PaddockController {
     @Autowired
     PaddockRepository paddockRepository;
     @GetMapping
-    public List<Paddock> getAllDepartments(){
+    public List<Paddock> getAllPaddock(){
         return paddockRepository.findAll();
     }
     @GetMapping("{id}")
-    // returns if id is present and nul if id not present in the table
-    public Optional<Paddock> getDepartment(@PathVariable Long id){
+
+    public Optional<Paddock> getPaddock(@PathVariable Long id){
         return paddockRepository.findById(id);
     }
 

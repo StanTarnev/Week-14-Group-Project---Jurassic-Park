@@ -38,11 +38,11 @@ class JurassicParkApplicationTests {
 		Paddock paddock1 = new Paddock("paddock1",4);
 		paddockRepository.save(paddock1);
 
-		Dinosaur dinosaur1= new Dinosaur("Pachycephalosaurus",5,"Female",22,paddock1);
-		Dinosaur dinosaur2= new Dinosaur("Dreadnoughtus",10,"Male",15,paddock1);
+		Dinosaur dinosaur1= new Dinosaur("Pachycephalosaurus",5,"Female",22);
+		Dinosaur dinosaur2= new Dinosaur("Dreadnoughtus",10,"Male",15);
 		dinosaurRepository.save(dinosaur1);
 		dinosaurRepository.save(dinosaur2);
-//		paddock1.addDinosaur(dinosaur1);
+     //	paddock1.addDinosaur(dinosaur1);
 //		paddock1.addDinosaur(dinosaur2);
 
 
