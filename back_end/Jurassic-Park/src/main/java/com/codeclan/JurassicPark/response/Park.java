@@ -9,7 +9,6 @@ public class Park {
 
 
     private List<Dinosaur> dinosaurs;
-
     private List<Visitor> visitors;
     private List<Paddock> paddocks;
 
