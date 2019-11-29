@@ -38,10 +38,24 @@ public class ParkController {
         return paddockRepository.findById(id);
     }
 
+
+
+
     @GetMapping("/visitor")
     public List<Visitor> getAllVisitors() {
         return  visitorRepository.findAll();
     }
+
+    @GetMapping("/dinosaur")
+    public List<Dinosaur> getAllDinosaurs() {
+        return dinosaurRepository.findAll();
+    }
+
+    @GetMapping("/dinosaur/{id}")
+    public Optional<Dinosaur> getDinosaur(@PathVariable Long id) {
+        return dinosaurRepository.findById(id);
+    }
+
     @GetMapping("/view")
     public Park getAllPaddockAndVistors(){
     List<Visitor> visitors = visitorRepository.findAll();
@@ -51,5 +65,6 @@ public class ParkController {
     Park park = new Park( dinosaurs,paddocks,visitors,totalRevenue);
         return park;
     }
+
 }
 
