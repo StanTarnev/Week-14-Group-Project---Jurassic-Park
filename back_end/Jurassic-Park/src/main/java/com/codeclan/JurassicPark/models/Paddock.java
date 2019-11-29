@@ -1,6 +1,6 @@
-package com.codeclan.JurassicPark.models.paddocks;
+package com.codeclan.JurassicPark.models;
 
-import com.codeclan.JurassicPark.models.dinosaurs.Dinosaur;
+import com.codeclan.JurassicPark.models.Dinosaur;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -16,7 +16,7 @@ public class Paddock {
     private Long id;
 
     @JsonIgnoreProperties("paddock")
-    @OneToMany(mappedBy = "paddock", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "paddock")
     private List<Dinosaur> dinosaurs;
 
     @Column(name = "paddockName")

@@ -1,4 +1,4 @@
-package com.codeclan.JurassicPark.models.food;
+package com.codeclan.JurassicPark.models;
 
 public class Food{
 

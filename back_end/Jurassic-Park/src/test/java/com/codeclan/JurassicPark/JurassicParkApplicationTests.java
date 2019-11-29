@@ -3,9 +3,9 @@ package com.codeclan.JurassicPark;
 import com.codeclan.JurassicPark.Repositories.DinosaurRepository;
 import com.codeclan.JurassicPark.Repositories.PaddockRepository;
 import com.codeclan.JurassicPark.Repositories.VisitorRepository;
-import com.codeclan.JurassicPark.models.dinosaurs.Dinosaur;
-import com.codeclan.JurassicPark.models.paddocks.Paddock;
-import com.codeclan.JurassicPark.models.visitor.Visitor;
+import com.codeclan.JurassicPark.models.Dinosaur;
+import com.codeclan.JurassicPark.models.Paddock;
+import com.codeclan.JurassicPark.models.Visitor;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,28 +28,24 @@ class JurassicParkApplicationTests {
 
 	@Test
 	void createPark(){
-
-
-		Visitor visitor1 = new Visitor("sree",200);
+		Visitor visitor1 = new Visitor("sree",30);
 		Visitor visitor2 = new Visitor("uday",30);
 		visitorRepository.save(visitor1);
 		visitorRepository.save(visitor2);
 
+		Dinosaur dinosaur1= new Dinosaur("Pachycephalosaurus",5,"Female",22);
+		Dinosaur dinosaur2= new Dinosaur("Dreadnoughtus",10,"Male",15);
+
+
 		Paddock paddock1 = new Paddock("paddock1",4);
 		paddockRepository.save(paddock1);
 
-		Dinosaur dinosaur1= new Dinosaur("Pachycephalosaurus",5,"Female",22);
-		Dinosaur dinosaur2= new Dinosaur("Dreadnoughtus",10,"Male",15);
+
+		dinosaur1.setPaddock(paddock1);
+		dinosaur2.setPaddock(paddock1);
+
 		dinosaurRepository.save(dinosaur1);
 		dinosaurRepository.save(dinosaur2);
-     //	paddock1.addDinosaur(dinosaur1);
-//		paddock1.addDinosaur(dinosaur2);
-
-
-//		dinosaur1.setPaddock(paddock1);
-//		dinosaur2.setPaddock(paddock1);
-
-
 
 	}
 }

@@ -1,6 +1,5 @@
-package com.codeclan.JurassicPark.models.dinosaurs;
+package com.codeclan.JurassicPark.models;
 
-import com.codeclan.JurassicPark.models.paddocks.Paddock;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -31,7 +30,6 @@ public class Dinosaur
     @JsonIgnoreProperties("dinosaur")
     @ManyToOne
     @JoinColumn(name = "pad_id")
-
     private Paddock paddock;
 
 

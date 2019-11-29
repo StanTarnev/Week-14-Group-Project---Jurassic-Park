@@ -1,9 +1,7 @@
-package com.codeclan.JurassicPark.models.visitor;
-
-import com.codeclan.JurassicPark.models.paddocks.Paddock;
+package com.codeclan.JurassicPark.models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+
 @Entity
 @Table(name ="visitors")
 public class Visitor {
@@ -13,17 +11,26 @@ public class Visitor {
     private Long id;
     @Column(name="name")
     private String name ;
-    @Column(name="wallet")
-    private int wallet;
+
+
+    @Column(name="fees")
+    private double fees;
 
     public Visitor() {
     }
 
-    public Visitor(String name , int wallet){
+    public Visitor(String name , int fees){
         this.name = name ;
-        this.wallet = wallet;
+        this.fees = fees;
     }
 
+    public double getFees() {
+        return fees;
+    }
+
+    public void setFees(double fees) {
+        this.fees = fees;
+    }
     public String getName() {
         return name;
     }
@@ -32,13 +39,7 @@ public class Visitor {
         this.name = name;
     }
 
-    public int getWallet() {
-        return wallet;
-    }
 
-    public void setWallet(int wallet) {
-        this.wallet = wallet;
-    }
 
     public Long getId() {
         return id;
