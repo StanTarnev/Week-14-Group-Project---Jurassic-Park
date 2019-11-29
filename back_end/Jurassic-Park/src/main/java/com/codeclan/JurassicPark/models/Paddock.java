@@ -1,6 +1,4 @@
 package com.codeclan.JurassicPark.models;
-
-import com.codeclan.JurassicPark.models.Dinosaur;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -19,16 +17,17 @@ public class Paddock {
     @OneToMany(mappedBy = "paddock")
     private List<Dinosaur> dinosaurs;
 
-    @Column(name = "paddockName")
-    private String paddockName;
+    @Column(name = "name")
+    private String name;
+
     @Column(name="capacity")
     private int capacity;
 
     public Paddock() {
     }
 
-    public Paddock(String paddockName, int capacity) {
-        this.paddockName = paddockName;
+    public Paddock(String name, int capacity) {
+        this.name = name;
         this.capacity = capacity;
         this.dinosaurs=new ArrayList<>();
     }
@@ -42,11 +41,11 @@ public class Paddock {
     }
 
     public String getPaddock() {
-        return paddockName;
+        return name;
     }
 
-    public void setPaddock(String paddockName) {
-        this.paddockName = paddockName;
+    public void setPaddock(String name) {
+        this.name = name;
     }
 
 

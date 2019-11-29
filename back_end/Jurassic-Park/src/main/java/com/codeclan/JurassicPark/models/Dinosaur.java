@@ -26,6 +26,8 @@ public class Dinosaur
     @Column (name ="age")
     private int age;
 
+    @Column(name = "type")
+    private String type;
 
     @JsonIgnoreProperties("dinosaur")
     @ManyToOne
@@ -33,11 +35,12 @@ public class Dinosaur
     private Paddock paddock;
 
 
-    public Dinosaur(String species, int belly, String gender, int age) {
+    public Dinosaur(String species, int belly, String gender, int age ,String type ) {
         this.species = species;
         this.belly = belly;
         this.gender = gender;
         this.age = age;
+        this.type = type;
     }
 
     public Dinosaur() {
@@ -89,5 +92,13 @@ public class Dinosaur
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
