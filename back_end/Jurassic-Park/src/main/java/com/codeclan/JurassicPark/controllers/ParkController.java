@@ -38,9 +38,6 @@ public class ParkController {
         return paddockRepository.findById(id);
     }
 
-
-
-
     @GetMapping("/visitor")
     public List<Visitor> getAllVisitors() {
         return  visitorRepository.findAll();
