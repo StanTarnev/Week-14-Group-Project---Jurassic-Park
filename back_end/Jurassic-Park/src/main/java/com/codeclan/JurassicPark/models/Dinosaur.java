@@ -29,7 +29,7 @@ public class Dinosaur
     @Column(name = "type")
     private String type;
 
-    @JsonIgnoreProperties("dinosaur")
+    @JsonIgnoreProperties("dinosaurs")
     @ManyToOne
     @JoinColumn(name = "pad_id")
     private Paddock paddock;
@@ -100,5 +100,9 @@ public class Dinosaur
 
     public void setType(String type) {
         this.type = type;
+    }
+    public String getPaddockName(){
+        return this.paddock.getName();
+
     }
 }

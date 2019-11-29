@@ -14,7 +14,7 @@ public class Paddock {
     private Long id;
 
     @JsonIgnoreProperties("paddock")
-    @OneToMany(mappedBy = "paddock")
+    @OneToMany(mappedBy = "paddock", fetch = FetchType.EAGER)
     private List<Dinosaur> dinosaurs;
 
     @Column(name = "name")
@@ -40,11 +40,11 @@ public class Paddock {
         this.dinosaurs = dinosaurs;
     }
 
-    public String getPaddock() {
+    public String getName() {
         return name;
     }
 
-    public void setPaddock(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
