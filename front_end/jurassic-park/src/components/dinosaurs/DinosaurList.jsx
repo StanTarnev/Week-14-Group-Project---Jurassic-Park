@@ -12,12 +12,9 @@ const DinosaurList = (props) => {
 	})
 	return (
     <Fragment>
-      <div>
   		<ul>
   		    {dinosaurs}
   		</ul>
-      <button>Add Dinosaur</button>
-      </div>
     </Fragment>
 	)
 }

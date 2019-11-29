@@ -7,6 +7,7 @@ class DinosaurContainer extends Component {
     return(
       <Fragment>
         <DinosaurList dinosaurs={this.props.dinosaurs}/>
+        <button>Add Dinosaur</button>
       </Fragment>
     )
   }

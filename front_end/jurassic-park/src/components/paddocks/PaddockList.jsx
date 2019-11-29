@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Fragment} from 'react';
 import PaddockDetail from './PaddockDetail';
 
 const PaddockList = (props) => {
@@ -10,9 +10,9 @@ const PaddockList = (props) => {
   })
 
   return (
-    <div className="paddock-list">
-    {paddocksView}
-    </div>
+    <Fragment>
+      {paddocksView}
+    </Fragment>
   )
 }
 
