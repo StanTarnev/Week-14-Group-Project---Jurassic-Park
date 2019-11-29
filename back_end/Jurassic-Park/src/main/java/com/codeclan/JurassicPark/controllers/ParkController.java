@@ -2,14 +2,12 @@ package com.codeclan.JurassicPark.controllers;
 
 import com.codeclan.JurassicPark.Repositories.DinosaurRepository;
 import com.codeclan.JurassicPark.models.Dinosaur;
-import com.codeclan.JurassicPark.response.Park;
 import com.codeclan.JurassicPark.Repositories.PaddockRepository;
 import com.codeclan.JurassicPark.Repositories.VisitorRepository;
 import com.codeclan.JurassicPark.models.Paddock;
 import com.codeclan.JurassicPark.models.Visitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,43 +24,6 @@ public class ParkController {
 
     @Autowired
     DinosaurRepository dinosaurRepository;
-
-//    @GetMapping("/paddock")
-//    public List<Paddock> getAllPaddock() {
-//        return paddockRepository.findAll();
-//    }
-//
-//    @GetMapping("/paddock/{id}")
-//    public Optional<Paddock> getPaddock(@PathVariable Long id) {
-//        return paddockRepository.findById(id);
-//    }
-//
-//
-//
-//
-//
-//    @GetMapping("/visitor")
-//    public List<Visitor> getAllVisitors() {
-//        return  visitorRepository.findAll();
-//    }
-//
-//    @GetMapping("/dinosaur")
-//    public List<Dinosaur> getAllDinosaurs() {
-//        return dinosaurRepository.findAll();
-//    }
-//
-//    @GetMapping("/dinosaur/{id}")
-//    public Optional<Dinosaur> getDinosaur(@PathVariable Long id) {
-//        return dinosaurRepository.findById(id);
-//    }
-//
-////    @GetMapping("/dinosaur/id/delete")
-////    public void deleteDinosaur(@PathVariable Long id){
-////        Dinosaur dinosaur = dinosaurRepository.findById(id);
-////        return  ;
-////
-////    }
-//
     @GetMapping
     public Park getAllPaddockAndVistors(){
     List<Visitor> visitors = visitorRepository.findAll();
