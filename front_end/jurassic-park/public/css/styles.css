@@ -59,6 +59,7 @@ header li {
 
 a {
     color: black;
+    padding: 20px;
 }
 
 .singleDinosaur {
@@ -76,4 +77,22 @@ a {
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.paddock-container {
+  width: 70%;
+}
+
+.dinosaur-container {
+  width: 30%;
+  flex-grow: column;
 }
