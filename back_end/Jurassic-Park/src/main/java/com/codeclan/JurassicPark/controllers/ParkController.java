@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -28,35 +27,43 @@ public class ParkController {
     @Autowired
     DinosaurRepository dinosaurRepository;
 
-    @GetMapping("/paddock")
-    public List<Paddock> getAllPaddock() {
-        return paddockRepository.findAll();
-    }
-
-    @GetMapping("/paddock/{id}")
-    public Optional<Paddock> getPaddock(@PathVariable Long id) {
-        return paddockRepository.findById(id);
-    }
-
-
-
-
-    @GetMapping("/visitor")
-    public List<Visitor> getAllVisitors() {
-        return  visitorRepository.findAll();
-    }
-
-    @GetMapping("/dinosaur")
-    public List<Dinosaur> getAllDinosaurs() {
-        return dinosaurRepository.findAll();
-    }
-
-    @GetMapping("/dinosaur/{id}")
-    public Optional<Dinosaur> getDinosaur(@PathVariable Long id) {
-        return dinosaurRepository.findById(id);
-    }
-
-    @GetMapping("/view")
+//    @GetMapping("/paddock")
+//    public List<Paddock> getAllPaddock() {
+//        return paddockRepository.findAll();
+//    }
+//
+//    @GetMapping("/paddock/{id}")
+//    public Optional<Paddock> getPaddock(@PathVariable Long id) {
+//        return paddockRepository.findById(id);
+//    }
+//
+//
+//
+//
+//
+//    @GetMapping("/visitor")
+//    public List<Visitor> getAllVisitors() {
+//        return  visitorRepository.findAll();
+//    }
+//
+//    @GetMapping("/dinosaur")
+//    public List<Dinosaur> getAllDinosaurs() {
+//        return dinosaurRepository.findAll();
+//    }
+//
+//    @GetMapping("/dinosaur/{id}")
+//    public Optional<Dinosaur> getDinosaur(@PathVariable Long id) {
+//        return dinosaurRepository.findById(id);
+//    }
+//
+////    @GetMapping("/dinosaur/id/delete")
+////    public void deleteDinosaur(@PathVariable Long id){
+////        Dinosaur dinosaur = dinosaurRepository.findById(id);
+////        return  ;
+////
+////    }
+//
+    @GetMapping
     public Park getAllPaddockAndVistors(){
     List<Visitor> visitors = visitorRepository.findAll();
     List<Dinosaur> dinosaurs = dinosaurRepository.findAll();

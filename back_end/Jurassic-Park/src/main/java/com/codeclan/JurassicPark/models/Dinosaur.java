@@ -29,7 +29,7 @@ public class Dinosaur
     @Column(name = "type")
     private String type;
 
-    @JsonIgnoreProperties("dinosaur")
+    @JsonIgnoreProperties("dinosaurs")
     @ManyToOne
     @JoinColumn(name = "pad_id")
     private Paddock paddock;
