@@ -7,6 +7,7 @@ class PaddockContainer extends Component {
     return (
       <div className="paddock-container">
       <PaddockList paddocks={this.props.paddocks}/>
+      <button>Add a Paddock</button>
       </div>
     )
   }

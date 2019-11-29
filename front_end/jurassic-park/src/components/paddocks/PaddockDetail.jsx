@@ -1,24 +1,15 @@
 import React, {Component, Fragment} from 'react';
+import Paddock from './Paddock';
 
-const PaddockDetail = ({paddock}) => {
-
-  function feedDinosaurs(){
-
-  }
-
+const PaddockDetail = ({paddock}, {dinosPlaced}) => {
   return(
     <Fragment>
-    <div>
-      <h3>{paddock.paddock}</h3>
-      <h3>Type: {paddock.type}</h3>
-      <h3>Capacity: {paddock.capacity}</h3>
-    </div>
-    <a><button>Add a Dinosaur</button></a>
-    <a><button>Remove a Dinosaur</button></a>
-    <a><button onClick={feedDinosaurs}>Feed Dinosaurs</button></a>
+    <Paddock dinosaurs={dinosPlaced} paddock={paddock}/>
+    <button>Add a Dinosaur</button>
+    <button>Remove a Dinosaur</button>
+    <button>Feed Dinosaurs</button>
     </Fragment>
   )
-
 }
 
 export default PaddockDetail;

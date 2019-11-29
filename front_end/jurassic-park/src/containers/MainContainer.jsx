@@ -58,7 +58,7 @@ class MainContainer extends Component {
       },
       {
         id: 4,
-        paddock: "Paddock 1",
+        paddock: "Paddock 4",
         type: "Carnivore Paddock",
         capacity: 4,
         dinosaurs: []
