@@ -1,17 +1,22 @@
 import React, {Fragment} from 'react';
 import PaddockDetail from './PaddockDetail';
+import Paddock from './Paddock';
 
 const PaddockList = (props) => {
 
-  const paddocksView = props.paddocks.map((paddock, index) => {
-    return (
-      <PaddockDetail paddock={paddock}/>
-    )
-  })
+  const paddocks = props.paddocks.map((paddock, index) => {
+		return(
+			<li key={index}>
+        <Paddock paddock={paddock}/>
+      </li>
+		)
+	})
 
   return (
     <Fragment>
-      {paddocksView}
+      <ul>
+        {paddocks}
+      </ul>
     </Fragment>
   )
 }

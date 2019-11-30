@@ -7,7 +7,6 @@ class PaddockContainer extends Component {
     return (
       <Fragment>
         <PaddockList paddocks={this.props.paddocks}/>
-        <button>Add a Paddock</button>
       </Fragment>
     )
   }

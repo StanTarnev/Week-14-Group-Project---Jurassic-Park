@@ -28,27 +28,31 @@ body {
 #root {
   margin-top: 80px;
   padding: 30px;
-}
-.container {
   display: flex;
-
 }
-.paddock-container {
-  flex-direction: row;
-}
-
 .dinosaur-container {
   flex-direction: column;
+  width: 25%;
+}
+
+.paddock-container {
+  flex-direction: row;
+  width: 75%;
 }
 
 .component {
   border: 1px solid black;
 }
 
-.paddock {
-  flex-direction: row;
-}
-
 li {
   list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }

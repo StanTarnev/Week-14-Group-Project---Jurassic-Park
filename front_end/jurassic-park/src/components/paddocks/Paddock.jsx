@@ -7,8 +7,7 @@ const Paddock = ({paddock},{dinosPlaced}) => {
   return (
   <Fragment>
     <div className="component">
-      <h3>{paddock.paddock}</h3>
-      <h3>Type: {paddock.type}</h3>
+      <h3>{paddock.name}</h3>
       <h3>Capacity: {paddock.capacity}</h3>
       <p>Dinosaurs: {dinosPlaced}</p>
       <div>

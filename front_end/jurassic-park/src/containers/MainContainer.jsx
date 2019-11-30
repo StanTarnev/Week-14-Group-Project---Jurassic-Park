@@ -4,6 +4,7 @@ import Request from '../helpers/request';
 import NavBar from '../NavBar';
 import DinosaurContainer from './dinosaurs/DinosaurContainer';
 import DinosaurFormContainer from './dinosaurs/DinosaurFormContainer';
+import PaddockFormContainer from './paddocks/PaddockFormContainer';
 import PaddockContainer from './paddocks/PaddockContainer';
 
 class MainContainer extends Component {
@@ -28,6 +29,7 @@ componentDidMount(){
     })
   })
 }
+
   render(){
     return(
       <Fragment>
@@ -38,16 +40,23 @@ componentDidMount(){
             <Route exact path="/" render={(props) => {
               return (
                 <Fragment>
-
+                <div className="dinosaur-container">
                   <DinosaurContainer dinosaurs={this.state.dinosaurs}/>
+                </div>
+                <div className="paddock-container">
                   <PaddockContainer paddocks={this.state.paddocks}/>
-
+                </div>
                 </Fragment>
               )
             }}/>
           {/* ADD A DINOSAUR */}
             <Route exact path="/dinosaurs/new" render={(props) =>{
               return <DinosaurFormContainer/>
+            }}/>
+
+          {/* ADD A PADDOCK */}
+            <Route exact path="/paddocks/new" render={(props) =>{
+              return <PaddockFormContainer/>
             }}/>
 
           </Switch>
