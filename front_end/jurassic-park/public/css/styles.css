@@ -37,11 +37,13 @@ body {
 
 .paddock-container {
   flex-direction: row;
-  width: 75%;
+  width: 50%;
 }
 
 .component {
   border: 1px solid black;
+  margin: 10px;
+  padding: 20px;
 }
 
 li {
@@ -55,4 +57,9 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
 }

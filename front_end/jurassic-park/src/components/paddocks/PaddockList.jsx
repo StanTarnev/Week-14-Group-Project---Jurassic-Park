@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import PaddockDetail from './PaddockDetail';
 import Paddock from './Paddock';
 
 const PaddockList = (props) => {

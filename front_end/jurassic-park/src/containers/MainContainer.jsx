@@ -4,6 +4,7 @@ import Request from '../helpers/request';
 import NavBar from '../NavBar';
 import DinosaurContainer from './dinosaurs/DinosaurContainer';
 import DinosaurFormContainer from './dinosaurs/DinosaurFormContainer';
+import Paddock from '../components/paddocks/Paddock';
 import PaddockFormContainer from './paddocks/PaddockFormContainer';
 import PaddockContainer from './paddocks/PaddockContainer';
 
@@ -14,6 +15,7 @@ class MainContainer extends Component {
       dinosaurs: [],
       paddocks: []
   }
+  this.findPaddockById = this.findPaddockById.bind(this)
 }
 componentDidMount(){
   const request = new Request()
@@ -29,6 +31,13 @@ componentDidMount(){
     })
   })
 }
+
+findPaddockById(id){
+    const paddock = this.state.paddocks.find((paddock) => {
+      return paddock.id === parseInt(id)
+    })
+    return paddock;
+  }
 
   render(){
     return(
@@ -57,6 +66,13 @@ componentDidMount(){
           {/* ADD A PADDOCK */}
             <Route exact path="/paddocks/new" render={(props) =>{
               return <PaddockFormContainer/>
+            }}/>
+
+          {/* VIEW A PADDOCK BY ID */}
+            <Route exact path="/paddocks/:id" render={(props) => {
+              const id = props.match.params.id;
+              const paddock = this.findPaddockById(id);
+              return <Paddock paddock={paddock}/>
             }}/>
 
           </Switch>
