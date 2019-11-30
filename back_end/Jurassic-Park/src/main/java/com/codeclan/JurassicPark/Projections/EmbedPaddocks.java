@@ -8,5 +8,5 @@ import java.util.List;
 
 @Projection(name= "embedPaddocks", types = Paddock.class)
 public interface EmbedPaddocks {
-    List<Dinosaur> gatDinosaurs();
+    List<Dinosaur> getDinosaurs();
 }
