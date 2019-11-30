@@ -102,7 +102,11 @@ public class Dinosaur
         this.type = type;
     }
     public String getPaddockName(){
-        return this.paddock.getName();
+        if (null != this.paddock) {
+            return this.paddock.getName();
+        } else {
+            return null;
+        }
 
     }
 }
