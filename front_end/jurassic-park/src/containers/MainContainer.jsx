@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Request from '../helpers/request';
 import NavBar from '../NavBar';
 import DinosaurContainer from './dinosaurs/DinosaurContainer';
+import DinosaurFormContainer from './dinosaurs/DinosaurFormContainer';
 import PaddockContainer from './paddocks/PaddockContainer';
 
 class MainContainer extends Component {
@@ -44,6 +45,11 @@ componentDidMount(){
                 </Fragment>
               )
             }}/>
+          {/* ADD A DINOSAUR */}
+            <Route exact path="/dinosaurs/new" render={(props) =>{
+              return <DinosaurFormContainer/>
+            }}/>
+
           </Switch>
         </Router>
       </Fragment>
