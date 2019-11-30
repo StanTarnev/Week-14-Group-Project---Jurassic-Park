@@ -12,9 +12,6 @@ const Dinosaur = ({dinosaur}) => {
         <p>Hunger: {dinosaur.belly}</p>
         <p>Gender: {dinosaur.gender}</p>
         <p>Age: {dinosaur.age}</p>
-        <div className="buttons">
-          <button>Feed Dinosaur</button>
-        </div>
       </div>
     </Fragment>
   )
