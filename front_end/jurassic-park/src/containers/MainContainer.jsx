@@ -5,7 +5,6 @@ import NavBar from '../NavBar';
 import DinosaurContainer from './dinosaurs/DinosaurContainer';
 import PaddockContainer from './paddocks/PaddockContainer';
 
-
 class MainContainer extends Component {
   constructor(props){
     super(props);
@@ -38,8 +37,10 @@ componentDidMount(){
             <Route exact path="/" render={(props) => {
               return (
                 <Fragment>
+                <div className="container">
                   <DinosaurContainer className="dino-container" dinosaurs={this.state.dinosaurs}/>
                   <PaddockContainer className="paddock-container" paddocks={this.state.paddocks}/>
+                </div>
                 </Fragment>
               )
             }}/>

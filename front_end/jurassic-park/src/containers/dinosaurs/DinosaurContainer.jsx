@@ -6,8 +6,11 @@ class DinosaurContainer extends Component {
   render(){
     return(
       <Fragment>
+      <div className="container">
         <DinosaurList dinosaurs={this.props.dinosaurs}/>
+      </div>
         <button>Add Dinosaur</button>
+
       </Fragment>
     )
   }
