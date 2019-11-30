@@ -57,7 +57,9 @@ public class Paddock {
         this.capacity = capacity;
     }
     public void addDinosaur(Dinosaur dinosaur){
-        this.dinosaurs.add(dinosaur);
+        if (this.capacity > dinosaurs.size()){
+            this.dinosaurs.add(dinosaur);
+        }
     }
 
     public Long getId() {
