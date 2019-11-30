@@ -4,7 +4,7 @@ import Request from '../helpers/request';
 import NavBar from '../NavBar';
 import DinosaurContainer from './dinosaurs/DinosaurContainer';
 import DinosaurFormContainer from './dinosaurs/DinosaurFormContainer';
-import Paddock from '../components/paddocks/Paddock';
+import PaddockDetails from '../components/paddocks/PaddockDetails';
 import PaddockFormContainer from './paddocks/PaddockFormContainer';
 import PaddockContainer from './paddocks/PaddockContainer';
 
@@ -72,7 +72,7 @@ findPaddockById(id){
             <Route exact path="/paddocks/:id" render={(props) => {
               const id = props.match.params.id;
               const paddock = this.findPaddockById(id);
-              return <Paddock paddock={paddock}/>
+              return <PaddockDetails paddock={paddock}/>
             }}/>
 
           </Switch>
