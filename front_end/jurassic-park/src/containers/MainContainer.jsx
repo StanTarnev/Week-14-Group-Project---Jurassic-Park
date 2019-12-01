@@ -1,4 +1,4 @@
-import React, {Component, Fragment, useEffect} from 'react';
+import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Request from '../helpers/request';
 import NavBar from '../NavBar';
@@ -19,7 +19,8 @@ class MainContainer extends Component {
   }
   this.findPaddockById = this.findPaddockById.bind(this)
   this.findDinosaurById = this.findDinosaurById.bind(this)
-  this.handleDelete = this.handleDelete.bind(this)
+  this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this)
+  this.handlePaddockDelete = this.handlePaddockDelete.bind(this)
 }
 
 componentDidMount(){
@@ -52,9 +53,17 @@ findPaddockById(id){
     return paddock;
   }
 
-handleDelete(id){
+handleDinosaurDelete(id){
   const request = new Request()
-  const url = '/api/dinosaurs/' +id;
+  const url = '/api/dinosaurs/'+id;
+  request.delete(url).then(()=>{
+    window.location ='/';
+    });
+  }
+
+handlePaddockDelete(id){
+  const request = new Request()
+  const url = '/api/paddocks/'+id;
   request.delete(url).then(()=>{
     window.location ='/';
     });
@@ -68,15 +77,15 @@ handleDelete(id){
           <Switch>
           {/* HOME */}
             <Route exact path="/" render={(props) => {
-              const id = props.match.params.id;
-              const dinosaur = this.findDinosaurById(id);
               return (
                 <Fragment>
                 <div className="dinosaur-container">
-                  <DinosaurContainer dinosaur={dinosaur} dinosaurs={this.state.dinosaurs}/>
+                  <DinosaurContainer
+                  dinosaurs={this.state.dinosaurs}/>
                 </div>
                 <div className="paddock-container">
-                  <PaddockContainer paddocks={this.state.paddocks}/>
+                  <PaddockContainer
+                  paddocks={this.state.paddocks}/>
                 </div>
                 </Fragment>
               )
@@ -90,7 +99,9 @@ handleDelete(id){
             <Route exact path="/dinosaurs/:id" render={(props) => {
               const id = props.match.params.id;
               const dinosaur = this.findDinosaurById(id);
-              return <DinosaurDetails dinosaur={dinosaur} onDelete={this.handleDelete}/>
+              return <DinosaurDetails
+                dinosaur={dinosaur}
+                onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
 
           {/* ADD A PADDOCK */}
@@ -102,7 +113,9 @@ handleDelete(id){
             <Route exact path="/paddocks/:id" render={(props) => {
               const id = props.match.params.id;
               const paddock = this.findPaddockById(id);
-              return <PaddockDetails paddock={paddock}/>
+              return <PaddockDetails
+                paddock={paddock}
+                onPaddockDelete={this.handlePaddockDelete}/>
             }}/>
 
           </Switch>

@@ -1,16 +1,17 @@
 import React from 'react';
-import Dinosaur from './Dinosaur';
 
 const DinosaurDetails = (props) => {
 
-  const handleDelete = () => {
-    props.onDelete(props.dinosaur.id)
+  const handleDinosaurDelete = () => {
+    props.onDinosaurDelete(props.dinosaur.id)
   }
 
   return(
     <div className="component">
-      <Dinosaur/>
-      <button onClick={handleDelete}>Delete</button>
+      <h1>Dinosaur Details</h1>
+      <div className="buttons">
+        <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
+      </div>
     </div>
   )
 }
