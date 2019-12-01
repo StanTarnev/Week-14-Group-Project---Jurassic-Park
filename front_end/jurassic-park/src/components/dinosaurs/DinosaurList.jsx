@@ -8,8 +8,8 @@ const DinosaurList = (props) => {
 		return(
 			<div className="component">
 				<li key={index}>
-	        {/* <Dinosaur dinosaur={dinosaur}/>*/}
-					<h3>Name: {dinosaur.name}</h3>
+					<img src="../../images/t-rex-favicon.32x32.png" height="100" width="100"/>
+					<h3>{dinosaur.name}</h3>
 					<div className="buttons">
 	            <a href={url}><button>View Dinosaur Details</button></a>
 	        </div>

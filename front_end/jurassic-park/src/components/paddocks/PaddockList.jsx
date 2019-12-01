@@ -7,7 +7,7 @@ const PaddockList = (props) => {
 		return(
       <div className="component">
   			<li key={index}>
-          <h3>Name: {paddock.name}</h3>
+          <h3>{paddock.name}</h3>
           <div className="buttons">
 	            <a href={url}><button>View Paddock Details</button></a>
 	        </div>

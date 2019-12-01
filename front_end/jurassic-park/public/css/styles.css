@@ -32,12 +32,10 @@ body {
 }
 .dinosaur-container {
   flex-direction: column;
-  width: 25%;
 }
 
 .paddock-container {
   flex-direction: row;
-  width: 50%;
 }
 
 .component {

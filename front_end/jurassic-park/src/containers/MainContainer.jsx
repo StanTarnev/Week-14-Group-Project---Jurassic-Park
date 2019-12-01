@@ -69,13 +69,13 @@ handlePaddockDelete(id){
     });
   }
 
-  handleFeedDinosaur(id, dinosaur){
-    const request = new Request();
-    request.patch('/api/dinosaurs/'+id, dinosaur)
-    .then(() => {
-      window.location = '/dinosaurs/'+id;
-    })
-  }
+handleFeedDinosaur(id, dinosaur){
+  const request = new Request();
+  request.patch('/api/dinosaurs/'+id, dinosaur)
+  .then(() => {
+    window.location = '/dinosaurs/'+id;
+  })
+}
 
   render(){
     return(
@@ -120,6 +120,8 @@ handlePaddockDelete(id){
 
           {/* VIEW A PADDOCK BY ID */}
             <Route exact path="/paddocks/:id" render={(props) => {
+              const dino_id = props.match.params.id;
+              const dinosaur = this.findDinosaurById(dino_id);
               const id = props.match.params.id;
               const paddock = this.findPaddockById(id);
               return <PaddockDetails

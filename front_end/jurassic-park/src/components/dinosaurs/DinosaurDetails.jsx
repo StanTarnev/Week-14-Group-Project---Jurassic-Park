@@ -11,7 +11,7 @@ const DinosaurDetails = (props) => {
     event.preventDefault();
 
     const dinosaur = {
-      "belly": 10
+      "belly": props.dinosaur.belly -= 1
     }
     props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
   }

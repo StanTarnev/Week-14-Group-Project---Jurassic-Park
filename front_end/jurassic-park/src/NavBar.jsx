@@ -21,7 +21,7 @@ const NavBar = (props) => {
             <a href="/paddocks/new">Create Paddock</a>
           </li>
           <li>
-            <a>How to Play</a>
+            <a>Help</a>
           </li>
           <li>
             <button>Start Day</button>
