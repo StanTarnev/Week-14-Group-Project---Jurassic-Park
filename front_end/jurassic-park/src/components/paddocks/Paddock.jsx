@@ -12,6 +12,7 @@ const Paddock = ({paddock}) => {
       <h3>{paddock.name}</h3>
       <p>Type: {paddock.type}</p>
       <p>Capacity: {paddock.capacity}</p>
+      <p>Dinosaurs:</p>
     </div>
   </Fragment>
   )

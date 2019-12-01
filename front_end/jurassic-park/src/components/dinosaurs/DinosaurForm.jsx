@@ -2,6 +2,10 @@ import React from 'react';
 
 const DinosaurForm = (props) => {
 
+  const options = props.paddocks.map((paddock, index) => {
+    return <option key={index} value={paddock._links.self.href}>{paddock.name}</option>
+  })
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const dinosaur ={
@@ -9,7 +13,8 @@ const DinosaurForm = (props) => {
       "species": event.target.species.value,
       "type": event.target.type.value,
       "gender": event.target.gender.value,
-      "age": event.target.age.value
+      "age": event.target.age.value,
+      "paddock": event.target.paddock.value
     }
     props.handleDinosaurPost(dinosaur);
 
@@ -28,6 +33,9 @@ const DinosaurForm = (props) => {
     <select name="type">Type:
       <option value="herbivore">Herbivore</option>
       <option value="carnivore">Carnivore</option>
+    </select>
+    <select name="paddock">
+      {options}
     </select>
     <button type="submit">Save</button>
     </form>

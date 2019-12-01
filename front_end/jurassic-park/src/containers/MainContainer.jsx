@@ -19,13 +19,17 @@ class MainContainer extends Component {
       visitors: 0,
       revenue: 0
   }
-  this.findPaddockById = this.findPaddockById.bind(this)
-  this.findDinosaurById = this.findDinosaurById.bind(this)
-  this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this)
-  this.handlePaddockDelete = this.handlePaddockDelete.bind(this)
+  this.findPaddockById = this.findPaddockById.bind(this);
+  this.findDinosaurById = this.findDinosaurById.bind(this);
+  this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
+  this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
+  this.addVisitors = this.addVisitors.bind(this);
+  this.timer = null;
 }
 
 componentDidMount(){
+
+  this.timer = setInterval(() => this.addVisitors(), 1000);
 
   const request = new Request();
 
@@ -39,6 +43,13 @@ componentDidMount(){
       paddocks: data[1]._embedded.paddocks
     })
   })
+}
+
+addVisitors() {
+  this.setState({
+    visitors: this.state.visitors +=1,
+    revenue: this.state.revenue +=30
+  });
 }
 
 findDinosaurById(id){
@@ -111,7 +122,8 @@ handleFeedDinosaur(id, dinosaur){
             }}/>
           {/* ADD A DINOSAUR */}
             <Route exact path="/dinosaurs/new" render={(props) =>{
-              return <DinosaurFormContainer/>
+              return <DinosaurFormContainer
+                paddocks={this.state.paddocks}/>
             }}/>
 
           {/* VIEW A DINOSAUR BY ID */}

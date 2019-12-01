@@ -34,17 +34,18 @@ public class Dinosaur
 
     @JsonIgnoreProperties("dinosaurs")
     @ManyToOne
-    @JoinColumn(name = "pad_id")
+    @JoinColumn(name = "pad_id", nullable=false)
     private Paddock paddock;
 
 
-    public Dinosaur(String name, String species, int belly, String gender, int age, String type ) {
+    public Dinosaur(String name, String species, int belly, String gender, int age, String type, Paddock paddock) {
         this.name = name;
         this.species = species;
         this.belly = belly;
         this.gender = gender;
         this.age = age;
         this.type = type;
+        this.paddock = paddock;
     }
 
     public Dinosaur() {
@@ -113,12 +114,5 @@ public class Dinosaur
     public void setType(String type) {
         this.type = type;
     }
-    public String getPaddockName(){
-        if (null != this.paddock) {
-            return this.paddock.getName();
-        } else {
-            return null;
-        }
 
-    }
 }
