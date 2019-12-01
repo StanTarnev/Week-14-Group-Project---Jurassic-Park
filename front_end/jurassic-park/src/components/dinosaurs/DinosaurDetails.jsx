@@ -13,7 +13,9 @@ const DinosaurDetails = (props) => {
     const dinosaur = {
       "belly": props.dinosaur.belly -= 1
     }
-    props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
+    if (props.dinosaur.belly >= 0) {
+      props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
+    }
   }
 
   return(

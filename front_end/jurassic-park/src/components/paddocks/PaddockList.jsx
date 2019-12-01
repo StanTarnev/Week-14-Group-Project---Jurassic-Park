@@ -18,6 +18,9 @@ const PaddockList = (props) => {
 
   return (
     <Fragment>
+    <div className="buttons">
+      <a href="/paddocks/new"><button>Create Paddock</button></a>
+    </div>
       <ul>
         {paddocks}
       </ul>

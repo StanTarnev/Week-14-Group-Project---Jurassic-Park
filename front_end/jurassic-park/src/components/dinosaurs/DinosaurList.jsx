@@ -8,7 +8,6 @@ const DinosaurList = (props) => {
 		return(
 			<div className="component">
 				<li key={index}>
-					<img src="../../images/t-rex-favicon.32x32.png" height="100" width="100"/>
 					<h3>{dinosaur.name}</h3>
 					<div className="buttons">
 	            <a href={url}><button>View Dinosaur Details</button></a>
@@ -19,6 +18,9 @@ const DinosaurList = (props) => {
 	})
 	return (
     <Fragment>
+		<div className="buttons">
+			<a href="/dinosaurs/new"><button>Create Dinosaur</button></a>
+		</div>
   		<ul>
   		    {dinosaurs}
   		</ul>

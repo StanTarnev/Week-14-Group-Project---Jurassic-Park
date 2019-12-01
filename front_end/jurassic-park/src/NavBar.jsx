@@ -14,17 +14,8 @@ const NavBar = (props) => {
           <li className="navLink">
             <a href="/dashboard">Dashboard</a>
           </li>
-          <li className="navLink">
-            <a href="/dinosaurs/new">Create Dinosaur</a>
-          </li>
-          <li className="navLink">
-            <a href="/paddocks/new">Create Paddock</a>
-          </li>
           <li>
             <a>Help</a>
-          </li>
-          <li>
-            <button>Start Day</button>
           </li>
         </ul>
 
