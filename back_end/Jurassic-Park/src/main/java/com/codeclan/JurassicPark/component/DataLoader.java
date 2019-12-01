@@ -29,11 +29,11 @@ public class DataLoader implements ApplicationRunner{
         visitorRepository.save(visitor1);
         visitorRepository.save(visitor2);
 
-        Dinosaur dinosaur1= new Dinosaur("Pachycephalosaurus",5,"Female",22,"Herbivores");
-        Dinosaur dinosaur2= new Dinosaur("Dreadnoughtus",10,"Male",15,"Carnivores");
+        Dinosaur dinosaur1= new Dinosaur("Georgina","Pachycephalosaurus",5,"Female",22,"Herbivores");
+        Dinosaur dinosaur2= new Dinosaur("David", "Dreadnoughtus",10,"Male",15,"Carnivores");
 
 
-        Paddock paddock1 = new Paddock("paddock1",4);
+        Paddock paddock1 = new Paddock("Paddock 1",4);
         paddockRepository.save(paddock1);
 
 

@@ -5,8 +5,9 @@ const DinosaurForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const dinosaur ={
-      "type": event.target.type.value,
+      "name": event.target.name.value,
       "species": event.target.species.value,
+      "type": event.target.type.value,
       "gender": event.target.gender.value,
       "age": event.target.age.value
     }
@@ -17,6 +18,7 @@ const DinosaurForm = (props) => {
   return (
     <div>
     <form onSubmit={handleSubmit}>
+    <input type="text" placeholder="Name" name="name"/>
     <input type="text" placeholder="Species" name="species"/>
     <input type="number" placeholder="Age" name="age"/>
     <select name="gender">Gender:

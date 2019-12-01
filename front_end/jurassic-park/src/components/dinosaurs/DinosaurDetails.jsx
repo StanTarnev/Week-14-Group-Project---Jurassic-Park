@@ -1,4 +1,5 @@
 import React from 'react';
+import Dinosaur from './Dinosaur';
 
 const DinosaurDetails = (props) => {
 
@@ -8,7 +9,8 @@ const DinosaurDetails = (props) => {
 
   return(
     <div className="component">
-      <h1>Dinosaur Details</h1>
+      <h3>Dinosaur Details</h3>
+      <Dinosaur dinosaur={props.dinosaur}/>
       <div className="buttons">
         <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
       </div>

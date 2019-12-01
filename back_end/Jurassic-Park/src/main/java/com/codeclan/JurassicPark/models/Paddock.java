@@ -13,8 +13,8 @@ public class Paddock {
     @Column(name="id")
     private Long id;
 
-    @JsonIgnoreProperties("paddock")
-    @OneToMany(mappedBy = "paddock", fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("paddocks")
+    @OneToMany(mappedBy = "paddock", fetch = FetchType.LAZY)
     private List<Dinosaur> dinosaurs;
 
     @Column(name = "name")
@@ -23,13 +23,13 @@ public class Paddock {
     @Column(name="capacity")
     private int capacity;
 
-    public Paddock() {
-    }
-
     public Paddock(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
-        this.dinosaurs=new ArrayList<>();
+        this.dinosaurs=new ArrayList<Dinosaur>();
+    }
+
+    public Paddock() {
     }
 
     public List<Dinosaur> getDinosaurs() {

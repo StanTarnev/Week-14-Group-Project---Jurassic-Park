@@ -8,12 +8,12 @@ import DinosaurFormContainer from './dinosaurs/DinosaurFormContainer';
 import PaddockDetails from '../components/paddocks/PaddockDetails';
 import PaddockFormContainer from './paddocks/PaddockFormContainer';
 import PaddockContainer from './paddocks/PaddockContainer';
+import DashboardContainer from './park/DashboardContainer';
 
 class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      rampage: false,
       dinosaurs: [],
       paddocks: []
   }
@@ -116,6 +116,11 @@ handlePaddockDelete(id){
               return <PaddockDetails
                 paddock={paddock}
                 onPaddockDelete={this.handlePaddockDelete}/>
+            }}/>
+
+          {/* VIEW DASHBOARD */}
+            <Route exact path="/dashboard" render={(props) => {
+              return <DashboardContainer/>
             }}/>
 
           </Switch>

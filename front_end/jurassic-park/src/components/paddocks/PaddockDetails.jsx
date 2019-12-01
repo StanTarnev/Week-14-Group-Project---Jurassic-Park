@@ -1,4 +1,5 @@
 import React from 'react';
+import Paddock from './Paddock';
 
 const PaddockDetails = (props) => {
 
@@ -8,7 +9,8 @@ const PaddockDetails = (props) => {
 
   return(
     <div className="component">
-      <h1>Paddock Details</h1>
+      <h3>Paddock Details</h3>
+      <Paddock paddock={props.paddock}/>
       <div className="buttons">
       <select name="dinosaurs">
         <option>Available Dinosaurs</option>

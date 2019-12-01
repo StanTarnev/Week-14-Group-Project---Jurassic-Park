@@ -14,8 +14,11 @@ public class Dinosaur
     @Column(name="id")
     private Long id;
 
+    @Column (name ="name")
+    private String name;
+
     @Column (name ="species")
-    private String species ;
+    private String species;
 
     @Column (name ="belly")
     private int belly;
@@ -35,7 +38,8 @@ public class Dinosaur
     private Paddock paddock;
 
 
-    public Dinosaur(String species, int belly, String gender, int age ,String type ) {
+    public Dinosaur(String name, String species, int belly, String gender, int age, String type ) {
+        this.name = name;
         this.species = species;
         this.belly = belly;
         this.gender = gender;
@@ -44,6 +48,14 @@ public class Dinosaur
     }
 
     public Dinosaur() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSpecies() {

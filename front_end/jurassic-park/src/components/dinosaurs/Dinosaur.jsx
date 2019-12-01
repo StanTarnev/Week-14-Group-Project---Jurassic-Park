@@ -2,21 +2,18 @@ import React, {Fragment} from 'react';
 
 const Dinosaur = ({dinosaur}) => {
 
-  const url = "/dinosaurs/" +dinosaur.id;
+  if(!dinosaur){
+    return "Loading..."
+  }
 
   return(
     <Fragment>
       <div className="component">
-        <h3>{dinosaur.species}</h3>
+        <h3>Name: {dinosaur.name}</h3>
+        <p>Species: {dinosaur.species}</p>
         <p>Hunger: {dinosaur.belly}</p>
         <p>Gender: {dinosaur.gender}</p>
         <p>Age: {dinosaur.age}</p>
-        <div className="buttons">
-					<form>
-          	<button type="submit">Feed Dinosaur</button>
-            <a href={url}><button>View Dinosaur Details</button></a>
-					</form>
-        </div>
       </div>
     </Fragment>
   )
