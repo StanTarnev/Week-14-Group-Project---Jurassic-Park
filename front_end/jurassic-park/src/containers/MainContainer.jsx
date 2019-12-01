@@ -114,6 +114,7 @@ handlePaddockDelete(id){
               const id = props.match.params.id;
               const paddock = this.findPaddockById(id);
               return <PaddockDetails
+                dinosaurs={this.state.dinosaurs}
                 paddock={paddock}
                 onPaddockDelete={this.handlePaddockDelete}/>
             }}/>

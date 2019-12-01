@@ -9,6 +9,7 @@ public interface EmbedDinosaurs {
     String getName();
     String getSpecies();
     int getBelly();
+    void setBelly(int belly);
     String getGender();
     int getAge();
     String getType();

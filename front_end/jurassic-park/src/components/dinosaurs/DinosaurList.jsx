@@ -11,9 +11,6 @@ const DinosaurList = (props) => {
 	        {/* <Dinosaur dinosaur={dinosaur}/>*/}
 					<h3>Name: {dinosaur.name}</h3>
 					<div className="buttons">
-						<form>
-	          	<button type="submit">Feed Dinosaur</button>
-	          </form>
 	            <a href={url}><button>View Dinosaur Details</button></a>
 	        </div>
 	      </li>

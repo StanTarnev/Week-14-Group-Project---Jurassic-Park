@@ -12,6 +12,9 @@ const DinosaurDetails = (props) => {
       <h3>Dinosaur Details</h3>
       <Dinosaur dinosaur={props.dinosaur}/>
       <div className="buttons">
+        <form>
+          <button type="submit">Feed Dinosaur</button>
+        </form>
         <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
       </div>
     </div>
