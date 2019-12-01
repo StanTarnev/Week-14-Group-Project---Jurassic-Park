@@ -15,7 +15,9 @@ class MainContainer extends Component {
     super(props);
     this.state = {
       dinosaurs: [],
-      paddocks: []
+      paddocks: [],
+      visitors: 0,
+      revenue: 0
   }
   this.findPaddockById = this.findPaddockById.bind(this)
   this.findDinosaurById = this.findDinosaurById.bind(this)
@@ -87,14 +89,23 @@ handleFeedDinosaur(id, dinosaur){
             <Route exact path="/" render={(props) => {
               return (
                 <Fragment>
-                <div className="dinosaur-container">
-                  <DinosaurContainer
-                  dinosaurs={this.state.dinosaurs}/>
-                </div>
-                <div className="paddock-container">
-                  <PaddockContainer
-                  paddocks={this.state.paddocks}/>
-                </div>
+                  <div className="main-container">
+                    <div className="dinosaur-container">
+                      <DinosaurContainer
+                      dinosaurs={this.state.dinosaurs}/>
+                    </div>
+                    <div className="paddock-container">
+                      <PaddockContainer
+                      paddocks={this.state.paddocks}/>
+                    </div>
+                    <div className="component">
+                      <div className="buttons">
+                        <button>Open Park</button>
+                      </div>
+                      <p>Visitor Count: {this.state.visitors}</p>
+                      <p>Daily Revenue: £{this.state.revenue}</p>
+                    </div>
+                  </div>
                 </Fragment>
               )
             }}/>

@@ -3,11 +3,11 @@ import React from 'react';
 const Dashboard = (props) => {
 
   return(
-    <div>
+    <div className="component">
       <h3>Dashboard</h3>
-      <p>Park Visitors: </p>
-      <p>Revenue: </p>
+      <div className="component" id="chart_div"></div>
     </div>
+
   )
 }
 
