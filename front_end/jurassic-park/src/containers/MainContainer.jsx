@@ -69,6 +69,14 @@ handlePaddockDelete(id){
     });
   }
 
+  handleFeedDinosaur(id, dinosaur){
+    const request = new Request();
+    request.patch('/api/dinosaurs/'+id, dinosaur)
+    .then(() => {
+      window.location = '/dinosaurs/'+id;
+    })
+  }
+
   render(){
     return(
       <Fragment>
@@ -101,6 +109,7 @@ handlePaddockDelete(id){
               const dinosaur = this.findDinosaurById(id);
               return <DinosaurDetails
                 dinosaur={dinosaur}
+                handleFeedDinosaur={this.handleFeedDinosaur}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
 

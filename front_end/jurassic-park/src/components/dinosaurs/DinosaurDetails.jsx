@@ -7,12 +7,21 @@ const DinosaurDetails = (props) => {
     props.onDinosaurDelete(props.dinosaur.id)
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const dinosaur = {
+      "belly": 10
+    }
+    props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
+  }
+
   return(
     <div className="component">
       <h3>Dinosaur Details</h3>
       <Dinosaur dinosaur={props.dinosaur}/>
       <div className="buttons">
-        <form>
+        <form onSubmit={handleSubmit}>
           <button type="submit">Feed Dinosaur</button>
         </form>
         <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
