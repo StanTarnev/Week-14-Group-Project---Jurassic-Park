@@ -10,6 +10,7 @@ const Paddock = ({paddock}) => {
   <Fragment>
     <div className="component">
       <h3>{paddock.name}</h3>
+      <p>Type: {paddock.type}</p>
       <p>Capacity: {paddock.capacity}</p>
     </div>
   </Fragment>

@@ -9,5 +9,7 @@ import java.util.List;
 public interface EmbedPaddocks {
         long getId();
         String getName();
+        String getType();
+        int getCapacity();
         List<Dinosaur> getDinosaurs();
 }

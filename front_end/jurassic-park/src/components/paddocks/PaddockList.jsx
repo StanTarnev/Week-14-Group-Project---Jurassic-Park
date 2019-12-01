@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import Paddock from './Paddock';
 
 const PaddockList = (props) => {
 
@@ -10,7 +9,7 @@ const PaddockList = (props) => {
   			<li key={index}>
           <h3>Name: {paddock.name}</h3>
           <div className="buttons">
-	            <a href={url}><button>View Dinosaur Details</button></a>
+	            <a href={url}><button>View Paddock Details</button></a>
 	        </div>
         </li>
       </div>

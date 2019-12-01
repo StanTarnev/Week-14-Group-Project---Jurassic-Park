@@ -20,11 +20,15 @@ public class Paddock {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "type")
+    private String type;
+
     @Column(name="capacity")
     private int capacity;
 
-    public Paddock(String name, int capacity) {
+    public Paddock(String name, String type, int capacity) {
         this.name = name;
+        this.type = type;
         this.capacity = capacity;
         this.dinosaurs=new ArrayList<Dinosaur>();
     }
@@ -48,6 +52,13 @@ public class Paddock {
         this.name = name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public int getCapacity() {
         return capacity;

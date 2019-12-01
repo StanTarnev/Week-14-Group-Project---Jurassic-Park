@@ -33,7 +33,7 @@ public class DataLoader implements ApplicationRunner{
         Dinosaur dinosaur2= new Dinosaur("David", "Dreadnoughtus",10,"Male",15,"Carnivores");
 
 
-        Paddock paddock1 = new Paddock("Paddock 1",4);
+        Paddock paddock1 = new Paddock("Paddock 1","Carnivores", 4);
         paddockRepository.save(paddock1);
 
 
