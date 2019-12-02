@@ -11,11 +11,18 @@ const DinosaurDetails = (props) => {
     event.preventDefault();
 
     const dinosaur = {
-      "belly": props.dinosaur.belly -= 1
     }
-    if (props.dinosaur.belly >= 0) {
+
+    if ( props.dinosaur.belly > 0){
+      dinosaur.belly = props.dinosaur.belly -= 1
+    } else {
+      dinosaur.belly = 0
+    }
+
+    if (dinosaur.belly > 0) {
       props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
     }
+
   }
 
   return(
