@@ -1,0 +1,78 @@
+.navLink {
+  display: inline;
+}
+header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+header * {
+  display: inline;
+}
+header img {
+  height: 80px;
+  margin-left: 40px;
+}
+header li {
+  margin: 20px;
+}
+body {
+  height: 125vh;
+  font-family: sans-serif;
+}
+#root {
+  margin-top: 80px;
+  padding: 30px;
+  display: flex;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 20px;
+}
+
+.component {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h3 {
+  text-align: center;
+}
+
+.dinosaur-container {
+  flex-direction: row;
+}
+
+.paddock-container {
+  flex-direction: row;
+}
