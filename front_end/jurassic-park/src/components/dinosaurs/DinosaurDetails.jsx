@@ -22,14 +22,6 @@ const DinosaurDetails = (props) => {
     if (dinosaur.belly > 0) {
       props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
     }
-    // const dinosaur = {
-    //   "belly": props.dinosaur.belly -= 1
-    // }
-    //
-    // while (props.dinosaur.belly > 0) {
-    //
-    //   props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
-    // }
 
   }
 

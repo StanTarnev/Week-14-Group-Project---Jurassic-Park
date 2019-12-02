@@ -5,7 +5,7 @@ const PaddockList = (props) => {
   const paddocks = props.paddocks.map((paddock, index) => {
     const url = "/paddocks/" +paddock.id;
 		return(
-      <div className="component">
+      <div key={index} className="component">
   			<li key={index}>
           <h3>{paddock.name}</h3>
           <div className="buttons">

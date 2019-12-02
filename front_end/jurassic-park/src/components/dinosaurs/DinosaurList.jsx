@@ -1,12 +1,11 @@
 import React, {Fragment} from 'react';
-import Dinosaur from './Dinosaur';
 
 const DinosaurList = (props) => {
 
 	const dinosaurs = props.dinosaurs.map((dinosaur, index) => {
 		const url = "/dinosaurs/" +dinosaur.id;
 		return(
-			<div className="component">
+			<div key={index} className="component">
 				<li key={index}>
 					<h3>{dinosaur.name}</h3>
 					<div className="buttons">
