@@ -79,7 +79,7 @@ toggleOpenClose = () => {
       this.closePark();
 
    } else {
-      this.openPark(); 
+      this.openPark();
    }
 };
 
@@ -144,7 +144,7 @@ handleFeedDinosaur(id, dinosaur){
                     <div className="component">
                       <div className="buttons">
                         <button onClick={this.toggleOpenClose}>
-                        {(this.state.parkOpen) ? "Close park" : "Open Park"}
+                        {(this.state.parkOpen) ? "Close Park" : "Open Park"}
                         </button>
 
                       </div>
