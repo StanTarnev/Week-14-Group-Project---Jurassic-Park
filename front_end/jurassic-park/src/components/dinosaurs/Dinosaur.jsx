@@ -1,23 +1,52 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 
-const Dinosaur = ({dinosaur}) => {
-
-  if(!dinosaur){
-    return "Loading..."
+class Dinosaur extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      belly: null
+    }
+    this.hungerTimer = null;
+    this.increaseHunger = this.increaseHunger.bind(this);
   }
 
-  return(
-    <Fragment>
+  componentDidUpdate() {
+    // this method will run any time any data on the Dinosaur changes (potentially LOTS! of times)
+    // we only want this method to run once: whenever we FULLY have the dinosaur prop, and whenever we have not yet initialized this.state.belly
+    if (this.props.dinosaur && this.state.belly == null) {
+      this.setState({
+        belly: this.props.dinosaur.belly
+      })
+      this.hungerTimer = setInterval(() => this.increaseHunger(), 5000);
+    }
+  }
+
+  increaseHunger(){
+    this.setState({
+      belly: this.state.belly += 1
+    })
+    // this.props.dinosaur.belly += 1;
+    // this.hungerTimer = setInterval(() => 1000);
+  }
+
+  render() {
+    if(!this.props.dinosaur){
+      return "Loading..."
+    }
+
+    return(
+      <Fragment>
       <div className="component">
-        <h3>{dinosaur.name}</h3>
-        <p>Species: {dinosaur.species}</p>
-        <p>Hunger: {dinosaur.belly}</p>
-        <p>Gender: {dinosaur.gender}</p>
-        <p>Age: {dinosaur.age}</p>
-        <p>Paddock: {dinosaur.paddock.name}</p>
+      <h3>{this.props.dinosaur.name}</h3>
+      <p>Species: {this.props.dinosaur.species}</p>
+      <p>Hunger: {this.state.belly}</p>
+      <p>Gender: {this.props.dinosaur.gender}</p>
+      <p>Age: {this.props.dinosaur.age}</p>
+      <p>Paddock: {this.props.dinosaur.paddock.name}</p>
       </div>
-    </Fragment>
-  )
+      </Fragment>
+    )
+  }
 }
 
 export default Dinosaur;

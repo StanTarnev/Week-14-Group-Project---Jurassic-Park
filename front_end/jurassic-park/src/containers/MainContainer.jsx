@@ -29,6 +29,7 @@ class MainContainer extends Component {
   this.closePark = this.closePark.bind(this);
   this.visitorTimer = null;
 
+
 }
 
 componentDidMount(){
@@ -46,6 +47,8 @@ componentDidMount(){
     })
   })
 }
+
+
 
 addVisitors() {
   this.setState({

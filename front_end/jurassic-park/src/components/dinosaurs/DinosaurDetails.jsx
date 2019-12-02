@@ -1,41 +1,56 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Dinosaur from './Dinosaur';
 
-const DinosaurDetails = (props) => {
+class DinosaurDetails extends Component {
+  constructor(props) {
+    super(props);
 
-  const handleDinosaurDelete = () => {
-    props.onDinosaurDelete(props.dinosaur.id)
+    this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  const handleSubmit = (event) => {
+
+
+
+
+  handleDinosaurDelete () {
+    this.props.onDinosaurDelete(this.props.dinosaur.id)
+  }
+
+  handleSubmit(event) {
     event.preventDefault();
+
+
 
     const dinosaur = {
     }
 
-    if ( props.dinosaur.belly > 0){
-      dinosaur.belly = props.dinosaur.belly -= 1
+    if ( this.state.belly > 0){
+      dinosaur.belly = this.props.dinosaur.belly -= 1
     } else {
       dinosaur.belly = 0
     }
 
     if (dinosaur.belly > 0) {
-      props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
+      this.props.handleFeedDinosaur(this.props.dinosaur.id, dinosaur)
     }
 
   }
 
-  return(
-    <div className="component">
-      <h3>Dinosaur Details</h3>
-      <Dinosaur dinosaur={props.dinosaur}/>
-      <div className="buttons">
-        <form onSubmit={handleSubmit}>
-          <button type="submit">Feed Dinosaur</button>
-        </form>
-        <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
+
+  render(){
+    return(
+      <div className="component">
+        <h3>Dinosaur Details</h3>
+        <Dinosaur dinosaur={this.props.dinosaur}/>
+        <div className="buttons">
+          <form onSubmit={this.handleSubmit}>
+            <button type="submit">Feed Dinosaur</button>
+          </form>
+          <button onClick={this.handleDinosaurDelete}>Delete Dinosaur</button>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 export default DinosaurDetails
