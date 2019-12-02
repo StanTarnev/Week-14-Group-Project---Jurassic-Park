@@ -64,6 +64,10 @@ closePark() {
   });
 }
 
+openPark = () => {
+  this.visitorTimer = setInterval(() => this.addVisitors(), 1000);
+}
+
 findDinosaurById(id){
       const dinosaur = this.state.dinosaurs.find((dinosaur) => {
         return dinosaur.id === parseInt(id)
@@ -124,6 +128,7 @@ handleFeedDinosaur(id, dinosaur){
                     <div className="component">
                       <div className="buttons">
                         <button onClick={this.closePark}>Close Park</button>
+                        <button onClick={this.openPark}>Open Park</button>
                       </div>
                       <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <p>Visitor Count: {this.state.visitors}</p>
