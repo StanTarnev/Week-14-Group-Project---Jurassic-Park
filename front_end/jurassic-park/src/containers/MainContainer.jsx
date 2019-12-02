@@ -18,7 +18,8 @@ class MainContainer extends Component {
       paddocks: [],
       visitors: 0,
       revenue: 0,
-      totalRevenue: 0
+      totalRevenue: 0,
+      parkOpen: true
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
@@ -60,13 +61,28 @@ closePark() {
   this.setState({
     visitors: 0,
     totalRevenue: this.state.totalRevenue += this.state.revenue,
-    revenue: 0
+    revenue: 0,
+    parkOpen: false
   });
 }
 
 openPark = () => {
+  this.setState({
+    parkOpen: true
+  });
+
   this.visitorTimer = setInterval(() => this.addVisitors(), 1000);
 }
+
+toggleOpenClose = () => {
+   if(this.state.parkOpen) {
+      this.closePark();
+
+   } else {
+      this.openPark(); 
+   }
+};
+
 
 findDinosaurById(id){
       const dinosaur = this.state.dinosaurs.find((dinosaur) => {
@@ -127,8 +143,10 @@ handleFeedDinosaur(id, dinosaur){
                     </div>
                     <div className="component">
                       <div className="buttons">
-                        <button onClick={this.closePark}>Close Park</button>
-                        <button onClick={this.openPark}>Open Park</button>
+                        <button onClick={this.toggleOpenClose}>
+                        {(this.state.parkOpen) ? "Close park" : "Open Park"}
+                        </button>
+
                       </div>
                       <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <p>Visitor Count: {this.state.visitors}</p>
