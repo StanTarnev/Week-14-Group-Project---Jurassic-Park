@@ -22,23 +22,24 @@ const DinosaurForm = (props) => {
 
   return (
     <div>
-    <form onSubmit={handleSubmit}>
-    <input type="text" placeholder="Name" name="name"/>
-    <input type="text" placeholder="Species" name="species"/>
-    <input type="number" placeholder="Age" name="age"/>
-    <select name="gender">Gender:
-      <option value="female">Female</option>
-      <option value="male">Male</option>
-    </select>
-    <select name="type">Type:
-      <option value="herbivore">Herbivore</option>
-      <option value="carnivore">Carnivore</option>
-    </select>
-    <select name="paddock">
-      {options}
-    </select>
-    <button type="submit">Save</button>
-    </form>
+      <h3>Add a new dinosaur</h3>
+      <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="Name" name="name"/>
+      <input type="text" placeholder="Species" name="species"/>
+      <input type="number" placeholder="Age" name="age"/>
+      <select name="gender">Gender:
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
+      <select name="type">Type:
+        <option value="herbivore">Herbivore</option>
+        <option value="carnivore">Carnivore</option>
+      </select>
+      <select name="paddock">
+        {options}
+      </select>
+      <button type="submit">Save</button>
+      </form>
     </div>
   )
 }

@@ -17,19 +17,22 @@ class MainContainer extends Component {
       dinosaurs: [],
       paddocks: [],
       visitors: 0,
-      revenue: 0
+      revenue: 0,
+      totalRevenue: 0
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
   this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
   this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
   this.addVisitors = this.addVisitors.bind(this);
-  this.timer = null;
+  this.closePark = this.closePark.bind(this);
+  this.visitorTimer = null;
+
 }
 
 componentDidMount(){
 
-  this.timer = setInterval(() => this.addVisitors(), 1000);
+  this.visitorTimer = setInterval(() => this.addVisitors(), 1000);
 
   const request = new Request();
 
@@ -48,7 +51,16 @@ componentDidMount(){
 addVisitors() {
   this.setState({
     visitors: this.state.visitors +=1,
-    revenue: this.state.revenue +=30
+    revenue: this.state.revenue +=5
+  });
+}
+
+closePark() {
+  clearTimeout(this.visitorTimer);
+  this.setState({
+    visitors: 0,
+    totalRevenue: this.state.totalRevenue += this.state.revenue,
+    revenue: 0
   });
 }
 
@@ -111,8 +123,9 @@ handleFeedDinosaur(id, dinosaur){
                     </div>
                     <div className="component">
                       <div className="buttons">
-                        <button>Open Park</button>
+                        <button onClick={this.closePark}>Close Park</button>
                       </div>
+                      <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <p>Visitor Count: {this.state.visitors}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
                     </div>

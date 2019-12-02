@@ -15,6 +15,7 @@ const PaddockForm = (props) => {
 
   return (
     <div>
+      <h3>Add a new paddock</h3>
       <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Name" name="name"/>
       <input type="number" placeholder="Capacity" name="capacity"/>
