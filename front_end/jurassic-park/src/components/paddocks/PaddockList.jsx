@@ -1,22 +1,31 @@
-import React, {Component} from 'react';
-import PaddockDetail from './PaddockDetail';
+import React, {Fragment} from 'react';
 
-const PaddockList =(props)=> {
+const PaddockList = (props) => {
 
-  const paddocks = props.paddocks.map((paddock) => {
-    return (<PaddockDetail paddock={paddock}/>
-    )
-  })
-
+  const paddocks = props.paddocks.map((paddock, index) => {
+    const url = "/paddocks/" +paddock.id;
+		return(
+      <div className="component">
+  			<li key={index}>
+          <h3>{paddock.name}</h3>
+          <div className="buttons">
+	            <a href={url}><button>View Paddock Details</button></a>
+	        </div>
+        </li>
+      </div>
+		)
+	})
 
   return (
-    <div className="paddock-list">
-    {paddocks}
-    <hr/>
-    <a><button>Add a Paddock</button></a>
+    <Fragment>
+    <div className="buttons">
+      <a href="/paddocks/new"><button>Create Paddock</button></a>
     </div>
+      <ul>
+        {paddocks}
+      </ul>
+    </Fragment>
   )
-  // <a onClick={this.addPaddock}><button>Add a Paddock</button></a>
 }
 
 export default PaddockList;

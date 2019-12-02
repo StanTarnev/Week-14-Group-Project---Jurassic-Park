@@ -4,20 +4,26 @@ import Dinosaur from './Dinosaur';
 const DinosaurList = (props) => {
 
 	const dinosaurs = props.dinosaurs.map((dinosaur, index) => {
+		const url = "/dinosaurs/" +dinosaur.id;
 		return(
-			<li key={index}>
-        <Dinosaur dinosaur={dinosaur}/>
-      </li>
+			<div className="component">
+				<li key={index}>
+					<h3>{dinosaur.name}</h3>
+					<div className="buttons">
+	            <a href={url}><button>View Dinosaur Details</button></a>
+	        </div>
+	      </li>
+			</div>
 		)
 	})
 	return (
     <Fragment>
-      <div>
+		<div className="buttons">
+			<a href="/dinosaurs/new"><button>Create Dinosaur</button></a>
+		</div>
   		<ul>
   		    {dinosaurs}
   		</ul>
-      <button>Add Dinosaur</button>
-      </div>
     </Fragment>
 	)
 }

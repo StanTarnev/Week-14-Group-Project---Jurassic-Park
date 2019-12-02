@@ -1,21 +1,27 @@
 import React, {Fragment} from 'react';
 
-const Paddock = ({paddock},{dinosPlaced}) => {
+const Paddock = ({paddock}) => {
+
   if(!paddock){
     return "Loading..."
   }
-  return (
+
+  const dinos = paddock.dinosaurs.map((dinosaur, index) => {
+    return (<li key={index}>
+      {dinosaur.name} ({dinosaur.species})
+     </li>)
+  })
+
+  return(
   <Fragment>
     <div className="component">
-      <h3>{paddock.paddock}</h3>
-      <h3>Type: {paddock.type}</h3>
-      <h3>Capacity: {paddock.capacity}</h3>
-      <p>Dinosaurs: {dinosPlaced}</p>
-      <div>
-        <button>Add a Dinosaur</button>
-        <button>Remove a Dinosaur</button>
-        <button>Feed Dinosaurs</button>
-      </div>
+      <h3>{paddock.name}</h3>
+      <p>Type: {paddock.type}</p>
+      <p>Capacity: {paddock.capacity}</p>
+      <p>Dinosaurs:</p>
+      <ul>
+        {dinos}
+      </ul>
     </div>
   </Fragment>
   )

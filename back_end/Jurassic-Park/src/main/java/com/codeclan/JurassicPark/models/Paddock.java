@@ -13,23 +13,27 @@ public class Paddock {
     @Column(name="id")
     private Long id;
 
-    @JsonIgnoreProperties("paddock")
-    @OneToMany(mappedBy = "paddock", fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("paddocks")
+    @OneToMany(mappedBy = "paddock", fetch = FetchType.LAZY)
     private List<Dinosaur> dinosaurs;
 
     @Column(name = "name")
     private String name;
 
+    @Column(name = "type")
+    private String type;
+
     @Column(name="capacity")
     private int capacity;
 
-    public Paddock() {
+    public Paddock(String name, String type, int capacity) {
+        this.name = name;
+        this.type = type;
+        this.capacity = capacity;
+        this.dinosaurs=new ArrayList<Dinosaur>();
     }
 
-    public Paddock(String name, int capacity) {
-        this.name = name;
-        this.capacity = capacity;
-        this.dinosaurs=new ArrayList<>();
+    public Paddock() {
     }
 
     public List<Dinosaur> getDinosaurs() {
@@ -48,6 +52,13 @@ public class Paddock {
         this.name = name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public int getCapacity() {
         return capacity;
@@ -57,7 +68,9 @@ public class Paddock {
         this.capacity = capacity;
     }
     public void addDinosaur(Dinosaur dinosaur){
-        this.dinosaurs.add(dinosaur);
+        if (this.capacity > dinosaurs.size()){
+            this.dinosaurs.add(dinosaur);
+        }
     }
 
     public Long getId() {

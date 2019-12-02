@@ -6,15 +6,18 @@ const NavBar = (props) => {
 
     <img src="/favicon.ico" alt="Logo"/>
 
-    <ul>
-      <h1>Jurrasic Park</h1>
-      <li className="navLink">
-        <a>Home</a>
-      </li>
-      <li className="navLink">
-        <a>Dashboard</a>
-      </li>
-    </ul>
+      <h1>Jurassic Park</h1>
+        <ul>
+          <li className="navLink">
+            <a href="/">View Park</a>
+          </li>
+          <li className="navLink">
+            <a href="/dashboard">View Dashboard</a>
+          </li>
+          <li>
+            <a>Help</a>
+          </li>
+        </ul>
 
     </header>
   )
