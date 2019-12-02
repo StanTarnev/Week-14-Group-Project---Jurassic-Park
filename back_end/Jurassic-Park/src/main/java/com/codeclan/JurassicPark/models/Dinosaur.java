@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Random;
 
 @Entity
@@ -50,7 +52,7 @@ public class Dinosaur
         this.age = age;
         this.type = type;
         this.paddock = paddock;
-        this.img= getImgUrl();
+        this.img= getImgUrl(species);
     }
 
     public Dinosaur() {
@@ -119,24 +121,23 @@ public class Dinosaur
     public void setType(String type) {
         this.type = type;
     }
-    public String  getImgUrl() {
-        ArrayList<String> images = new ArrayList<>();
-        images.add("https://everythingdinosaurs.weebly.com/uploads/1/3/7/3/13731406/2421347.jpg?542");
-        images.add("https://upload.wikimedia.org/wikipedia/commons/d/d5/Cerasinops_BW.jpg");
-        images.add("http://planetdi.startlogic.com/dinosaur_list/images/leptoceratops_cs.jpg");
-        images.add("http://1.bp.blogspot.com/_R3alTV6BaSE/TSfAFRVuE9I/AAAAAAAADVY/OH3xPkAoKvs/s1600/Panoplosaurus.gif");
-        images.add("https://cdn.mos.cms.futurecdn.net/Vs44m6AKXM3MvfX83DDtAE-320-80.png");
-        images.add("https://cdn.britannica.com/19/128219-050-15FA6D07/Therizinosaurus-dinosaurs.jpg");
-        images.add("https://i.pinimg.com/originals/50/0a/4e/500a4e8a16741c372e254141b47f7571.jpg");
-        int rnd = new Random().nextInt(images.size());
-        return this.img = images.get(rnd);
+    public String  getImgUrl(String species ){
+         String url = null;
+        HashMap<String , String> hm = new HashMap<String, String>();
+        hm.put("Cerasinops", "https://upload.wikimedia.org/wikipedia/commons/d/d5/Cerasinops_BW.jpg");
+        hm.put("Archaeoceratops", "https://alchetron.com/cdn/auroraceratops-cc5392db-8159-466e-94c3-775d5660da3-resize-750.jpg");
+        hm.put("Microceratops", "https://i.pinimg.com/originals/51/e8/32/51e832eb88f5032311944fc8a40ffd80.png");
+      if (hm.containsKey(species)){
+           url = hm.get(species);
+      }
+      return this.img = url;
     }
 
     public String getImg() {
         return img;
     }
 
-    public void setImg(String img) {
-        this.img = img;
-    }
+//    public void setImg(String img) {
+//        this.img = img;
+//    }
 }
