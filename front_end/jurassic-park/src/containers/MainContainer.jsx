@@ -19,7 +19,8 @@ class MainContainer extends Component {
       visitors: 0,
       revenue: 0,
       totalRevenue: 0,
-      parkOpen: false
+      parkOpen: false,
+      date: null
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
@@ -28,7 +29,6 @@ class MainContainer extends Component {
   this.addVisitors = this.addVisitors.bind(this);
   this.closePark = this.closePark.bind(this);
   this.visitorTimer = null;
-
 }
 
 componentDidMount(){
@@ -44,6 +44,12 @@ componentDidMount(){
       dinosaurs: data[0]._embedded.dinosaurs,
       paddocks: data[1]._embedded.paddocks
     })
+  })
+
+  const today = new Date();
+  const date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+  this.setState({
+    date: date
   })
 }
 
@@ -112,7 +118,7 @@ handlePaddockDelete(id){
     });
   }
 
-handleFeedDinosaur(id, dinosaur){
+handleUpdateDinosaur(id, dinosaur){
   const request = new Request();
   request.patch('/api/dinosaurs/'+id, dinosaur)
   .then(() => {
@@ -131,6 +137,7 @@ handleFeedDinosaur(id, dinosaur){
               return (
                 <Fragment>
                   <div className="main-container">
+                  <div className="main-container">
                     <div className="dinosaur-container">
                       <DinosaurContainer
                       dinosaurs={this.state.dinosaurs}/>
@@ -139,14 +146,16 @@ handleFeedDinosaur(id, dinosaur){
                       <PaddockContainer
                       paddocks={this.state.paddocks}/>
                     </div>
-                    <div className="component">
+                    </div>
+                    <div id="stats" className="component">
+                    <h3>Today's Date:</h3>
+                    <h3>{this.state.date}</h3>
+                    <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <div className="buttons">
                         <button onClick={this.toggleOpenClose}>
                         {(this.state.parkOpen) ? "Close Park" : "Open Park"}
                         </button>
-
                       </div>
-                      <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <p>Visitor Count: {this.state.visitors}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
                     </div>
@@ -166,7 +175,8 @@ handleFeedDinosaur(id, dinosaur){
               const dinosaur = this.findDinosaurById(id);
               return <DinosaurDetails
                 dinosaur={dinosaur}
-                handleFeedDinosaur={this.handleFeedDinosaur}
+                paddocks={this.state.paddocks}
+                handleUpdateDinosaur={this.handleUpdateDinosaur}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
 

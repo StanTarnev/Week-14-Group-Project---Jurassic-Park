@@ -3,6 +3,10 @@ import Dinosaur from './Dinosaur';
 
 const DinosaurDetails = (props) => {
 
+  const options = props.paddocks.map((paddock, index) => {
+    return <option key={index} value={paddock._links.self.href}>{paddock.name}</option>
+  })
+
   const handleDinosaurDelete = () => {
     props.onDinosaurDelete(props.dinosaur.id)
   }
@@ -18,11 +22,16 @@ const DinosaurDetails = (props) => {
     } else {
       dinosaur.belly = 0
     }
+    props.handleUpdateDinosaur(props.dinosaur.id, dinosaur)
 
-    if (dinosaur.belly > 0) {
-      props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
+  }
+
+  const handleTransferSubmit = (event) => {
+    event.preventDefault();
+    const dinosaur ={
+      "paddock": event.target.paddock.value
     }
-
+    props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
   }
 
   return(
@@ -32,6 +41,12 @@ const DinosaurDetails = (props) => {
       <div className="buttons">
         <form onSubmit={handleSubmit}>
           <button type="submit">Feed Dinosaur</button>
+        </form>
+        <form onSubmit={handleTransferSubmit}>
+          <select name="paddock">
+            {options}
+          </select>
+          <button type="submit">Transfer Paddock</button>
         </form>
         <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
       </div>
