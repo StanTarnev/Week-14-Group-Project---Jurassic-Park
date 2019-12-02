@@ -124,7 +124,6 @@ public class Dinosaur
         images.add("https://everythingdinosaurs.weebly.com/uploads/1/3/7/3/13731406/2421347.jpg?542");
         images.add("https://upload.wikimedia.org/wikipedia/commons/d/d5/Cerasinops_BW.jpg");
         images.add("http://planetdi.startlogic.com/dinosaur_list/images/leptoceratops_cs.jpg");
-        images.add("http://1.bp.blogspot.com/_R3alTV6BaSE/TSfAFRVuE9I/AAAAAAAADVY/OH3xPkAoKvs/s1600/Panoplosaurus.gif");
         images.add("https://cdn.mos.cms.futurecdn.net/Vs44m6AKXM3MvfX83DDtAE-320-80.png");
         images.add("https://cdn.britannica.com/19/128219-050-15FA6D07/Therizinosaurus-dinosaurs.jpg");
         images.add("https://i.pinimg.com/originals/50/0a/4e/500a4e8a16741c372e254141b47f7571.jpg");
