@@ -1,51 +1,33 @@
 package com.codeclan.JurassicPark.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name ="visitors")
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
-    @Column(name="name")
-    private String name ;
 
-
-    @Column(name="fees")
-    private double fees;
+    @Column(name = "date")
+    private String date;
 
     public Visitor() {
     }
 
-    public Visitor(String name , int fees){
-        this.name = name ;
-        this.fees = fees;
-    }
-
-    public double getFees() {
-        return fees;
-    }
-
-    public void setFees(double fees) {
-        this.fees = fees;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Visitor(String date ) {
+        this.date = date;
     }
 
 
-
-    public Long getId() {
-        return id;
+    public String getDate() {
+        return date;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDate(String date) {
+        this.date = date;
     }
+
 }
