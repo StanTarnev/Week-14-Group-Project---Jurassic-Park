@@ -15,8 +15,8 @@ import java.util.List;
 public class VisitorController {
 @Autowired
     VisitorRepository visitorRepository;
-//    @GetMapping
-//    public List<Visitor> getAllVisitors() {
-//        return visitorRepository.findAll();
-//    }
+    @GetMapping
+    public List<Visitor> getAllVisitors() {
+        return visitorRepository.findAll();
+    }
 }

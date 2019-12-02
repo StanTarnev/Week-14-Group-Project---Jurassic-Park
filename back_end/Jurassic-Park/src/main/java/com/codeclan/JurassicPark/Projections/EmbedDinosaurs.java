@@ -6,10 +6,15 @@ import org.springframework.data.rest.core.config.Projection;
 
 @Projection(name= "embedDinosaurs", types = Dinosaur.class)
 public interface EmbedDinosaurs {
+    long getId();
+    String getName();
     String getSpecies();
     int getBelly();
+    void setBelly(int belly);
     String getGender();
     int getAge();
     String getType();
-    String getPaddockName();
+    Paddock getPaddock();
+    void setPaddock(Paddock paddock);
+
 }

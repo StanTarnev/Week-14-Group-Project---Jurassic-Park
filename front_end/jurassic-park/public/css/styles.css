@@ -30,14 +30,13 @@ body {
   padding: 30px;
   display: flex;
 }
-.dinosaur-container {
-  flex-direction: column;
-  width: 25%;
-}
 
-.paddock-container {
+.main-container {
+  display: flex;
   flex-direction: row;
-  width: 50%;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 20px;
 }
 
 .component {
@@ -57,9 +56,23 @@ ul {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 .buttons {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h3 {
+  text-align: center;
+}
+
+.dinosaur-container {
+  flex-direction: row;
+}
+
+.paddock-container {
   flex-direction: row;
 }

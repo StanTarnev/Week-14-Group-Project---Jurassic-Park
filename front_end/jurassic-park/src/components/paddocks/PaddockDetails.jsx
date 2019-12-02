@@ -1,21 +1,28 @@
 import React from 'react';
+import Paddock from './Paddock';
 
 const PaddockDetails = (props) => {
 
+  const handlePaddockDelete = () => {
+    props.onPaddockDelete(props.paddock.id)
+  }
+
+  const dinoOptions = props.dinosaurs.map((dinosaur, index) => {
+    return <option key={index} value={dinosaur._links.self.href}>{dinosaur.name}</option>
+  })
+
   return(
     <div className="component">
-      <h1>Paddock Details</h1>
+      <h3>Paddock Details</h3>
+      <Paddock paddock={props.paddock}/>
       <div className="buttons">
-      <div className="buttons">
-      <select name="dinosaurs">
-        <option>Available Dinosaurs</option>
-      </select>
-        <button>Add to Paddock</button>
-      <select>
-        <option>Paddock Dinosaurs</option>
-      </select>
-        <button>Remove from Paddock</button>
-      </div>
+      <form>
+        <select name="dinosaur">
+          {dinoOptions}
+        </select>
+        <button type="submit">Add Dinosaur To Paddock</button>
+      </form>
+        <button onClick={handlePaddockDelete}>Delete Paddock</button>
       </div>
     </div>
   )
