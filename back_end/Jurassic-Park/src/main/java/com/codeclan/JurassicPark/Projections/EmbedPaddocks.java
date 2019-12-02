@@ -12,6 +12,6 @@ public interface EmbedPaddocks {
         String getName();
         String getType();
         int getCapacity();
-        Paddock getPaddock();
+//        Paddock getPaddock();
         List<Dinosaur> getDinosaurs();
 }
