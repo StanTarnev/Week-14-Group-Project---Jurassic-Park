@@ -19,7 +19,7 @@ class MainContainer extends Component {
       visitors: 0,
       revenue: 0,
       totalRevenue: 0,
-      parkOpen: true
+      parkOpen: false
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
@@ -49,7 +49,7 @@ componentDidMount(){
 
 addVisitors() {
   this.setState({
-    visitors: this.setState.visitors +=1,
+    visitors: this.state.visitors +=1,
     revenue: this.state.revenue +=5
   });
 }
