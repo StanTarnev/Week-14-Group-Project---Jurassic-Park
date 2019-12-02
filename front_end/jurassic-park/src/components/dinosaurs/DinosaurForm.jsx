@@ -25,7 +25,11 @@ const DinosaurForm = (props) => {
       <h3>Add a new dinosaur</h3>
       <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Name" name="name"/>
-      <input type="text" placeholder="Species" name="species"/>
+      <select name="species">Gender:
+        <option value="Cerasinops">Cerasinops</option>
+        <option value="Archaeoceratops">Archaeoceratops</option>
+        <option value="Microceratops">Microceratops</option>
+      </select>
       <input type="number" min="0" placeholder="Age" name="age"/>
       <select name="gender">Gender:
         <option value="female">Female</option>
