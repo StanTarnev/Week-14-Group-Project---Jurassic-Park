@@ -14,13 +14,11 @@ import DashboardContainer from './park/DashboardContainer';
 class MainContainer extends Component {
   constructor(props){
     super(props);
-    debugger;
     this.state = {
-      parks: {},
+      park: {},
       dinosaurs: [],
       paddocks: [],
-      park: null ,
-      visitorsCount: 0,
+      visitors: 0,
       revenue: 0,
       parkOpen: false,
       date: null
@@ -29,9 +27,7 @@ class MainContainer extends Component {
   this.findDinosaurById = this.findDinosaurById.bind(this);
   this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
   this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
-  this.addVisitors = this.addVisitors.bind(this);
   this.closePark = this.closePark.bind(this);
-  this.getPaddockType = this.getPaddockType.bind(this);
   this.visitorTimer = null;
 }
 
@@ -44,13 +40,12 @@ componentDidMount(){
   const promise3 = request.get('/api/parks');
   const promises = [promise1, promise2, promise3]
 
-
   Promise.all(promises)
   .then((data) => {
     this.setState({
       dinosaurs: data[0]._embedded.dinosaurs,
       paddocks: data[1]._embedded.paddocks,
-      parks: data[2]._embedded.parks[0]
+      park: data[2]._embedded.parks[0]
     })
   })
 
@@ -61,29 +56,10 @@ componentDidMount(){
   })
 }
 
-getPaddockType(url){
-  const request = new Request();
-  const data = request.get(url);
-  return data.type;
-}
-
-
 addVisitors() {
-
-const request = new Request();
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-
-today = mm + '/' + dd + '/' + yyyy;
-  const visitor ={
-    "date": today
-  };
-  request.post('api/visitors', visitor).then(() => {
-
-  })
-
+  this.setState({
+    visitors: this.state.visitors +=1
+  });
 }
 
 closePark() {
@@ -93,12 +69,13 @@ closePark() {
     totalRevenue: this.state.totalRevenue += this.state.revenue,
     revenue: 0,
     parkOpen: false
-  });
+  })
 }
+
 openPark = () => {
   this.setState({
     parkOpen: true
-  });
+  })
   this.visitorTimer = setInterval(() => this.addVisitors(), 1000);
 }
 
@@ -109,7 +86,7 @@ toggleOpenClose = () => {
    } else {
       this.openPark();
    }
-};
+}
 
 findDinosaurById(id){
       const dinosaur = this.state.dinosaurs.find((dinosaur) => {
@@ -172,13 +149,13 @@ handleUpdateDinosaur(id, dinosaur){
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
-                    <p>Total Revenue: £ {this.state.parks.totalRevenue}</p>
+                    <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
                       <div className="buttons">
                         <button onClick={this.toggleOpenClose}>
                         {(this.state.parkOpen) ? "Close Park" : "Open Park"}
                         </button>
                       </div>
-                      <p>Visitor Count: {this.state.visitorCount}</p>
+                      <p>Visitor Count: {this.state.visitors}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
                     </div>
                   </div>

@@ -24,8 +24,8 @@ public class Park {
 //    @Column(name = "date")
 //    private String  date;
 //
-//    @Column(name = "visitorCount")
-//    private int  visitorCount;
+    @Column(name = "visitorCount")
+    private int  visitorCount;
 
     @JsonIgnoreProperties("park")
     @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
@@ -36,7 +36,7 @@ public class Park {
         this.totalRevenue=totalRevenue;
 
         this.visitors= new ArrayList<>();
-//        this.visitorCount = 0;
+        this.visitorCount = 0;
     }
 
     public Park() {
@@ -103,5 +103,11 @@ public class Park {
         this.id = id;
     }
 
+    public int getVisitorCount() {
+        return visitorCount;
+    }
 
+    public void setVisitorCount(int visitorCount) {
+        this.visitorCount = visitorCount;
+    }
 }
