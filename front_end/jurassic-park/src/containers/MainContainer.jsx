@@ -21,7 +21,7 @@ class MainContainer extends Component {
       visitorsCount: 0,
       visitors1:[],
       revenue: 0,
-      totalRevenue: 0
+      totalRevenue:500
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
@@ -35,7 +35,7 @@ class MainContainer extends Component {
 
 componentDidMount(){
 
-  this.visitorTimer = setInterval(() => this.addVisitors(), 10000);
+  // this.visitorTimer = setInterval(() => this.addVisitors(), 10000);
 
   const request = new Request();
 
@@ -70,7 +70,7 @@ today = mm + '/' + dd + '/' + yyyy;
     "date": today
   };
   request.post('api/visitors', visitor).then(() => {
-    //window.location = '/'
+
   })
 
   const park = request.get('/park')
@@ -92,7 +92,6 @@ closePark() {
     revenue: 0
   });
 }
-
 openPark = () => {
   this.visitorTimer = setInterval(() => this.addVisitors(), 10000);
 }
@@ -158,7 +157,7 @@ handleFeedDinosaur(id, dinosaur){
                         <button onClick={this.closePark}>Close Park</button>
                         <button onClick={this.openPark}>Open Park</button>
                       </div>
-                      <p>Total Revenue: £ {}</p>
+                      <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <p>Visitor Count: {this.state.visitorsCount}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
                     </div>
