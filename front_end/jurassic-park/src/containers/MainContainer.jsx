@@ -165,16 +165,13 @@ handleUpdateDinosaur(id, dinosaur){
               return (
                 <Fragment>
                   <div className="main-container">
-                  <div className="main-container">
+
                     <div className="dinosaur-container">
                       <DinosaurContainer
                       dinosaurs={this.state.dinosaurs}/>
                     </div>
-                    <div className="paddock-container">
-                      <PaddockContainer
-                      paddocks={this.state.paddocks}/>
-                    </div>
-                    </div>
+
+
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
@@ -186,6 +183,10 @@ handleUpdateDinosaur(id, dinosaur){
                       </div>
                       <p>Visitor Count: {this.state.visitorCount}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
+                    </div>
+                    <div className="paddock-container">
+                      <PaddockContainer
+                      paddocks={this.state.paddocks}/>
                     </div>
                   </div>
                 </Fragment>
