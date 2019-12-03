@@ -72,6 +72,7 @@ public class Dinosaur
 
     public void setSpecies(String species) {
         this.species = species;
+        this.img = getImgUrl(species);
     }
 
     public int getBelly() {

@@ -55,6 +55,7 @@ public class Park {
     }
 
     public double getTotalRevenue() {
+        totalRevenue+=dailyRevenue;
         return totalRevenue;
     }
 
