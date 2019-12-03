@@ -14,13 +14,14 @@ import DashboardContainer from './park/DashboardContainer';
 class MainContainer extends Component {
   constructor(props){
     super(props);
+    debugger;
     this.state = {
+      parks: {},
       dinosaurs: [],
       paddocks: [],
       park: null ,
       visitorsCount: 0,
       revenue: 0,
-      totalRevenue: 0,
       parkOpen: false,
       date: null
   }
@@ -40,13 +41,16 @@ componentDidMount(){
 
   const promise1 = request.get('/api/dinosaurs');
   const promise2 = request.get('/api/paddocks');
-  const promises = [promise1, promise2]
+  const promise3 = request.get('/api/parks');
+  const promises = [promise1, promise2, promise3]
 
 
-  Promise.all(promises).then((data) => {
+  Promise.all(promises)
+  .then((data) => {
     this.setState({
       dinosaurs: data[0]._embedded.dinosaurs,
-      paddocks: data[1]._embedded.paddocks
+      paddocks: data[1]._embedded.paddocks,
+      parks: data[2]._embedded.parks[0]
     })
   })
 
@@ -66,7 +70,7 @@ getPaddockType(url){
 
 addVisitors() {
 
-  const request = new Request();
+const request = new Request();
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -78,15 +82,6 @@ today = mm + '/' + dd + '/' + yyyy;
   };
   request.post('api/visitors', visitor).then(() => {
 
-  })
-
-  const park = request.get('/park')
-  const promises = [park]
-  Promise.all(promises).then((data) => {
-    this.setState({
-      visitorsCount: data[0].visitorCount,
-      revenue: data[0].dailyRevenue
-    });
   })
 
 }
@@ -177,7 +172,7 @@ handleUpdateDinosaur(id, dinosaur){
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
-                    <p>Total Revenue: £ {this.state.totalRevenue}</p>
+                    <p>Total Revenue: £ {this.state.parks.totalRevenue}</p>
                       <div className="buttons">
                         <button onClick={this.toggleOpenClose}>
                         {(this.state.parkOpen) ? "Close Park" : "Open Park"}
