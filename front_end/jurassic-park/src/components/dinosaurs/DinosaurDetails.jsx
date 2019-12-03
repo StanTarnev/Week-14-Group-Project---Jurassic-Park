@@ -1,56 +1,69 @@
 import React, {Component} from 'react';
 import Dinosaur from './Dinosaur';
 
-class DinosaurDetails extends Component {
-  constructor(props) {
-    super(props);
+const DinosaurDetails =(props)=> {
 
-    this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+  const options = props.paddocks.map((paddock, index) => {
+    return <option key={index} value={paddock.id}>{paddock.name} ({paddock.type})</option>
+  })
+
+  const handleDinosaurDelete = () => {
+    props.onDinosaurDelete(props.dinosaur.id)
   }
 
 
 
 
 
-  handleDinosaurDelete () {
-    this.props.onDinosaurDelete(this.props.dinosaur.id)
-  }
+  // handleDinosaurDelete () {
+  //   this.props.onDinosaurDelete(this.props.dinosaur.id)
+  // }
 
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-
 
     const dinosaur = {
     }
 
-    if ( this.props.belly > 0){
-      dinosaur.belly = this.props.dinosaur.belly -= 1
+    if ( props.dinosaur.belly > 0){
+      dinosaur.belly = props.dinosaur.belly -= 1
     } else {
       dinosaur.belly = 0
     }
+    props.handleUpdateDinosaur(props.dinosaur.id, dinosaur)
 
-    if (dinosaur.belly > 0) {
-      this.props.handleFeedDinosaur(this.props.dinosaur.id, dinosaur)
+  }
+
+  const handleTransferSubmit = (event) => {
+    event.preventDefault();
+    const dinosaur = {};
+    const newPaddock = props.findPaddockById(event.target.paddock.value);
+    if(props.dinosaur.type === newPaddock.type){
+      dinosaur.paddock = newPaddock._links.self.href;
+      props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
+    } else {
+      alert("!!!")
     }
-
   }
 
-
-  render(){
-    return(
-      <div className="component">
-        <h3>Dinosaur Details</h3>
-        <Dinosaur dinosaur={this.props.dinosaur}/>
-        <div className="buttons">
-          <form onSubmit={this.handleSubmit}>
-            <button type="submit">Feed Dinosaur</button>
-          </form>
-          <button onClick={this.handleDinosaurDelete}>Delete Dinosaur</button>
-        </div>
+  return(
+    <div className="component">
+      <h3>Dinosaur Details</h3>
+      <Dinosaur dinosaur={props.dinosaur}/>
+      <div className="buttons">
+        <form onSubmit={handleSubmit}>
+          <button type="submit">Feed Dinosaur</button>
+        </form>
+        <form onSubmit={handleTransferSubmit}>
+          <select name="paddock">
+            {options}
+          </select>
+          <button type="submit">Transfer Paddock</button>
+        </form>
+        <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
       </div>
+    </div>
     )
-  }
 }
 export default DinosaurDetails

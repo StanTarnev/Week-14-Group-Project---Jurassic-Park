@@ -39,9 +39,11 @@ class Dinosaur extends Component{
       <div className="component">
       <h3>{this.props.dinosaur.name}</h3>
       <p>Species: {this.props.dinosaur.species}</p>
+      <p>Type: {this.props.dinosaur.type}</p>
       <p>Hunger: {this.state.belly}</p>
       <p>Gender: {this.props.dinosaur.gender}</p>
       <p>Age: {this.props.dinosaur.age}</p>
+      <img src={this.props.dinosaur.img} alt="dinosaur"/>
       <p>Paddock: {this.props.dinosaur.paddock.name}</p>
       </div>
       </Fragment>
