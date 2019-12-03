@@ -30,11 +30,12 @@ const DinosaurDetails = (props) => {
     event.preventDefault();
     const dinosaur = {};
     const newPaddock = props.findPaddockById(event.target.paddock.value);
-    if(props.dinosaur.type === newPaddock.type){
+    if(props.dinosaur.type !== newPaddock.type || newPaddock.type == null){
+      alert(props.dinosaur.type+"'s cannot be transferred to "+newPaddock.name+ "(Type: "+newPaddock.type+")");
+    } else {
       dinosaur.paddock = newPaddock._links.self.href;
       props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
-    } else {
-      alert("!!!")
+
     }
   }
 
@@ -48,6 +49,7 @@ const DinosaurDetails = (props) => {
         </form>
         <form onSubmit={handleTransferSubmit}>
           <select name="paddock">
+          <option selected disabled value="none">Select a paddock</option>
             {options}
           </select>
           <button type="submit">Transfer Paddock</button>

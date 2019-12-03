@@ -104,7 +104,6 @@ openPark = () => {
   this.setState({
     parkOpen: true
   });
-
   this.visitorTimer = setInterval(() => this.addVisitors(), 1000);
 }
 
