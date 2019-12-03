@@ -28,6 +28,7 @@ class MainContainer extends Component {
   this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
   this.addVisitors = this.addVisitors.bind(this);
   this.closePark = this.closePark.bind(this);
+  this.getPaddockType = this.getPaddockType.bind(this);
   this.visitorTimer = null;
 }
 
@@ -51,6 +52,12 @@ componentDidMount(){
   this.setState({
     date: date
   })
+}
+
+getPaddockType(url){
+  const request = new Request();
+  const data = request.get(url);
+  return data.type;
 }
 
 addVisitors() {
@@ -86,7 +93,6 @@ toggleOpenClose = () => {
       this.openPark();
    }
 };
-
 
 findDinosaurById(id){
       const dinosaur = this.state.dinosaurs.find((dinosaur) => {
@@ -176,6 +182,7 @@ handleUpdateDinosaur(id, dinosaur){
               return <DinosaurDetails
                 dinosaur={dinosaur}
                 paddocks={this.state.paddocks}
+                findPaddockById={this.findPaddockById}
                 handleUpdateDinosaur={this.handleUpdateDinosaur}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>

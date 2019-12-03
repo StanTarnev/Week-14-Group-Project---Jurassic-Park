@@ -4,13 +4,12 @@ const PaddockForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const paddock ={
+    const paddock = {
       "name": event.target.name.value,
       "type": event.target.type.value,
       "capacity": event.target.capacity.value
     }
     props.handlePaddockPost(paddock);
-
   }
 
   return (
@@ -20,8 +19,8 @@ const PaddockForm = (props) => {
       <input type="text" placeholder="Name" name="name"/>
       <input type="number" placeholder="Capacity" name="capacity"/>
       <select name="type">Type:
-        <option value="Herbivores">Herbivores Only</option>
-        <option value="Carnivores">Carnivores Only</option>
+        <option value="herbivore">Herbivores Only</option>
+        <option value="carnivore">Carnivores Only</option>
       </select>
       <button type="submit">Save</button>
       </form>

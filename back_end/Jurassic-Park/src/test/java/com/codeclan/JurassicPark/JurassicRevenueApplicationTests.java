@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class JurassicParkApplicationTests {
+class JurassicRevenueApplicationTests {
 	@Autowired
 	DinosaurRepository dinosaurRepository;
 	@Autowired

@@ -10,7 +10,9 @@ const Dinosaur = ({dinosaur}) => {
     <Fragment>
       <div className="component">
         <h3>{dinosaur.name}</h3>
+        <img src={dinosaur.img}/>
         <p>Species: {dinosaur.species}</p>
+        <p>Type: {dinosaur.type}</p>
         <p>Hunger: {dinosaur.belly}</p>
         <p>Gender: {dinosaur.gender}</p>
         <p>Age: {dinosaur.age}</p>

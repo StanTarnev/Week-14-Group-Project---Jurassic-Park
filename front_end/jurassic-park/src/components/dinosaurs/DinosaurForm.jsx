@@ -3,7 +3,7 @@ import React from 'react';
 const DinosaurForm = (props) => {
 
   const options = props.paddocks.map((paddock, index) => {
-    return <option key={index} value={paddock._links.self.href}>{paddock.name}</option>
+    return <option key={index} value={paddock._links.self.href}>{paddock.name} ({paddock.type})</option>
   })
 
   const handleSubmit = (event) => {
@@ -17,7 +17,6 @@ const DinosaurForm = (props) => {
       "paddock": event.target.paddock.value
     }
     props.handleDinosaurPost(dinosaur);
-
   }
 
   return (

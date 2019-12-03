@@ -4,7 +4,7 @@ import Dinosaur from './Dinosaur';
 const DinosaurDetails = (props) => {
 
   const options = props.paddocks.map((paddock, index) => {
-    return <option key={index} value={paddock._links.self.href}>{paddock.name}</option>
+    return <option key={index} value={paddock.id}>{paddock.name} ({paddock.type})</option>
   })
 
   const handleDinosaurDelete = () => {
@@ -28,10 +28,16 @@ const DinosaurDetails = (props) => {
 
   const handleTransferSubmit = (event) => {
     event.preventDefault();
-    const dinosaur ={
-      "paddock": event.target.paddock.value
+    const dinosaur = {};
+
+    let newPaddock = props.findPaddockById(event.target.paddock.value);
+    if(props.dinosaur.type === newPaddock.type){
+      dinosaur.paddock = newPaddock._links.self.href;
+      debugger;
+      props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
+    } else {
+      alert("!!!")
     }
-    props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
   }
 
   return(

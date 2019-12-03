@@ -38,7 +38,7 @@ public class Dinosaur
 
     @JsonIgnoreProperties("dinosaurs")
     @ManyToOne
-    @JoinColumn(name = "pad_id", nullable=false)
+    @JoinColumn(name = "pad_id")
     private Paddock paddock;
 
 
