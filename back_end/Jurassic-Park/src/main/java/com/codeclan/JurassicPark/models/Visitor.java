@@ -1,5 +1,7 @@
 package com.codeclan.JurassicPark.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,11 +16,18 @@ public class Visitor {
     @Column(name = "date")
     private String date;
 
+
+    @JsonIgnoreProperties("visitors")
+    @ManyToOne
+    @JoinColumn(name = "park_id", nullable=false)
+    private Park park ;
+
     public Visitor() {
     }
 
-    public Visitor(String date ) {
+    public Visitor(String date,Park park ) {
         this.date = date;
+        this.park= park;
     }
 
 
@@ -30,4 +39,11 @@ public class Visitor {
         this.date = date;
     }
 
+    public Park getPark() {
+        return park;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
+    }
 }

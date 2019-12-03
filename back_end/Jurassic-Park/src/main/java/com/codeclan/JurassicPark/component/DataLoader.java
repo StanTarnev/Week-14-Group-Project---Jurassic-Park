@@ -2,9 +2,11 @@ package com.codeclan.JurassicPark.component;
 
 import com.codeclan.JurassicPark.Repositories.DinosaurRepository;
 import com.codeclan.JurassicPark.Repositories.PaddockRepository;
+import com.codeclan.JurassicPark.Repositories.ParkRepository;
 import com.codeclan.JurassicPark.Repositories.VisitorRepository;
 import com.codeclan.JurassicPark.models.Dinosaur;
 import com.codeclan.JurassicPark.models.Paddock;
+import com.codeclan.JurassicPark.models.Park;
 import com.codeclan.JurassicPark.models.Visitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -24,12 +26,21 @@ public class DataLoader implements ApplicationRunner{
         VisitorRepository visitorRepository;
         @Autowired
         PaddockRepository paddockRepository;
+        @Autowired
+         ParkRepository parkRepository;
     public DataLoader() {
     }
 
     public void run(ApplicationArguments args) throws Exception  {
-        Visitor visitor1 = new Visitor("12/02/2019");
+        Park park = new Park (200,"12/02/2019");
+        parkRepository.save(park);
+
+
+
+        Visitor visitor1 = new Visitor("12/02/2019",park);
         visitorRepository.save(visitor1);
+
+        park.addVisitors(visitor1);
 
         Paddock paddock1 = new Paddock("Paddock 1","Carnivores", 4);
         paddockRepository.save(paddock1);

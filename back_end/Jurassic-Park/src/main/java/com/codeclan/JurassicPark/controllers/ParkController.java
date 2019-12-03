@@ -1,5 +1,7 @@
 package com.codeclan.JurassicPark.controllers;
 
+import com.codeclan.JurassicPark.Repositories.PaddockRepository;
+import com.codeclan.JurassicPark.Repositories.ParkRepository;
 import com.codeclan.JurassicPark.Repositories.VisitorRepository;
 import com.codeclan.JurassicPark.models.Park;
 import com.codeclan.JurassicPark.models.Visitor;
@@ -13,18 +15,22 @@ import java.util.List;
 @RestController
 @RequestMapping(value="/park")
 public class ParkController {
+//    @Autowired
+//    VisitorRepository visitorRepository;
+//
+//    @GetMapping
+//    public Park getAllPaddockAndVistors(){
+//    List<Visitor> visitors = visitorRepository.findAll();
+//    int  visitorCount = visitors.size();
+//    double totalRevenue = visitorCount * 5;
+//
+//
+//    Park park = new Park(,visitorCount,totalRevenue);
+//        return park;
+//    }
+
     @Autowired
-    VisitorRepository visitorRepository;
-
-    @GetMapping
-    public Park getAllPaddockAndVistors(){
-    List<Visitor> visitors = visitorRepository.findAll();
-    int  visitorCount = visitors.size();
-    double totalRevenue = visitorCount * 5;
-
-    Park park = new Park(totalRevenue,visitorCount);
-        return park;
-    }
+    ParkRepository parkRepository;
 
 }
 
