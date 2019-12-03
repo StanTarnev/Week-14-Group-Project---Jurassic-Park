@@ -21,7 +21,7 @@ const PaddockList = (props) => {
     <div className="buttons">
       <a href="/paddocks/new"><button>Create Paddock</button></a>
     </div>
-      <ul>
+      <ul className="container-list">
         {paddocks}
       </ul>
     </Fragment>

@@ -5,8 +5,10 @@ class DinosaurContainer extends Component {
   render(){
     return(
       <Fragment>
+  
         <DinosaurList
           dinosaurs={this.props.dinosaurs}/>
+
       </Fragment>
     )
   }

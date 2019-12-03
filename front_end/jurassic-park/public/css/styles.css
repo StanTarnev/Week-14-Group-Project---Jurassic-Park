@@ -2,7 +2,7 @@
   display: inline;
 }
 header {
-  background-color: 	#f7f7ed;
+  background-color: #f7f7ed;
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@ header {
   display: flex;
   align-items: center;
   display: flex;
-  justify-content: space-around;;
+  justify-content: space-evenly;
 }
 header * {
   display: inline;
@@ -26,8 +26,9 @@ header li {
 body {
   height: 125vh;
   font-family: sans-serif;
-  background-image: url("http://getwallpapers.com/wallpaper/full/b/1/1/151233.jpg");
-  height: 100%;
+  background-image: url("../images/jurassic_park_jungle_island.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #root {
   margin-top: 80px;
@@ -37,13 +38,10 @@ body {
 
 .main-container {
   display: flex;
-  flex-direction: row;
-  border: 1px solid black;
-  border-radius: 20px;
+  width: 100%;
+  position: fixed;
+  justify-content: space-evenly;
 
-  padding: 20px;
-  background-color: #f7f7ed;
-  margin: auto;
 }
 
 .component {
@@ -80,8 +78,32 @@ h3 {
 
 .dinosaur-container {
   flex-direction: row;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
 }
 
 .paddock-container {
   flex-direction: row;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+}
+
+.form {
+    margin: auto;
+    background-color: #f7f7ed;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top:0px;
+    margin-top: 200px;
+}
+
+.container-list {
+  display: flex;
+  justify-content: space-between;
 }
