@@ -15,6 +15,7 @@ class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
+      totalRevenue: 0,
       park: {},
       dinosaurs: [],
       paddocks: [],
@@ -27,7 +28,7 @@ class MainContainer extends Component {
   this.findDinosaurById = this.findDinosaurById.bind(this);
   this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
   this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
-  this.closePark = this.closePark.bind(this);
+  this.getPaddockType = this.getPaddockType.bind(this);
   this.visitorTimer = null;
 }
 
@@ -40,12 +41,13 @@ componentDidMount(){
   const promise3 = request.get('/api/parks');
   const promises = [promise1, promise2, promise3]
 
+
   Promise.all(promises)
   .then((data) => {
     this.setState({
       dinosaurs: data[0]._embedded.dinosaurs,
       paddocks: data[1]._embedded.paddocks,
-      park: data[2]._embedded.parks[0]
+      parks: data[2]._embedded.parks[0]
     })
   })
 
@@ -56,10 +58,14 @@ componentDidMount(){
   })
 }
 
+getPaddockType(url){
+  const request = new Request();
+  const data = request.get(url);
+  return data.type;
+}
+
 addVisitors() {
-  this.setState({
-    visitors: this.state.visitors +=1
-  });
+  this.state.visitors += 1
 }
 
 closePark() {
@@ -69,24 +75,24 @@ closePark() {
     totalRevenue: this.state.totalRevenue += this.state.revenue,
     revenue: 0,
     parkOpen: false
-  })
+  });
 }
-
 openPark = () => {
   this.setState({
     parkOpen: true
-  })
+  });
   this.visitorTimer = setInterval(() => this.addVisitors(), 1000);
 }
 
 toggleOpenClose = () => {
+  debugger;
    if(this.state.parkOpen) {
       this.closePark();
 
    } else {
       this.openPark();
    }
-}
+};
 
 findDinosaurById(id){
       const dinosaur = this.state.dinosaurs.find((dinosaur) => {

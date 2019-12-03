@@ -6,4 +6,5 @@ import org.springframework.data.rest.core.config.Projection;
 public interface EmbedPark {
    double getDailyRevenue();
     int getVisitorCount();
+    int getFinancialRecords();
 }

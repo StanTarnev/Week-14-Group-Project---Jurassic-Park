@@ -31,12 +31,17 @@ public class Park {
     @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
     private List<Visitor> visitors;
 
+    @JsonIgnoreProperties("park")
+    @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
+    private List<FinancialRecord> financialRecords;
+
     public Park(double totalRevenue ,String date ) {
 //        this.dailyRevenue =0;
         this.totalRevenue=totalRevenue;
 
         this.visitors= new ArrayList<>();
         this.visitorCount = 0;
+        this.financialRecords = new ArrayList<>();
     }
 
     public Park() {
@@ -109,5 +114,13 @@ public class Park {
 
     public void setVisitorCount(int visitorCount) {
         this.visitorCount = visitorCount;
+    }
+
+    public List<FinancialRecord> getFinancialRecords() {
+        return financialRecords;
+    }
+
+    public void setFinancialRecords(List<FinancialRecord> financialRecords) {
+        this.financialRecords = financialRecords;
     }
 }
