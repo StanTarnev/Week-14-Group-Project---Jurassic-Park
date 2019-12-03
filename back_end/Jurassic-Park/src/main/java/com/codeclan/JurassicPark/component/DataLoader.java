@@ -34,8 +34,13 @@ public class DataLoader implements ApplicationRunner{
         paddockRepository.save(paddock1);
         paddockRepository.save(paddock2);
 
+<<<<<<< HEAD
         Dinosaur dinosaur1= new Dinosaur("Georgina","Pachycephalosaurus",5,"Female",22,"herbivore",paddock2);
         Dinosaur dinosaur2= new Dinosaur("David", "Dreadnoughtus",10,"Male",15,"carnivore",paddock1);
+=======
+        Dinosaur dinosaur1= new Dinosaur("Georgina","Cerasinops",5,"Female",22,"Herbivores",paddock1);
+        Dinosaur dinosaur2= new Dinosaur("David", "Microceratops",10,"Male",15,"Carnivores",paddock1);
+>>>>>>> origin/from-master
 
         dinosaurRepository.save(dinosaur1);
         dinosaurRepository.save(dinosaur2);

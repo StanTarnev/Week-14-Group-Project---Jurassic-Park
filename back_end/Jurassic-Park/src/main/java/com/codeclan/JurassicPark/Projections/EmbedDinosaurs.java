@@ -15,7 +15,7 @@ public interface EmbedDinosaurs {
     int getAge();
     String getType();
     Paddock getPaddock();
-    String getImgUrl();
+    String getImg();
     void setPaddock(Paddock paddock);
 
 }
