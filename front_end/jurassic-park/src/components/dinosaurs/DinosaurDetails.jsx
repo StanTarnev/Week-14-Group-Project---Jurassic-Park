@@ -25,7 +25,7 @@ class DinosaurDetails extends Component {
     const dinosaur = {
     }
 
-    if ( this.state.belly > 0){
+    if ( this.props.belly > 0){
       dinosaur.belly = this.props.dinosaur.belly -= 1
     } else {
       dinosaur.belly = 0
