@@ -34,7 +34,7 @@ public class Park {
     public Park(double totalRevenue ,String date ) {
         this.dailyRevenue =0;
         this.totalRevenue=totalRevenue;
-        this.date=date ;
+        this.date=date;
         this.visitors= new ArrayList<>();
         this.visitorCount = 0;
     }

@@ -30,13 +30,16 @@ const DinosaurDetails = (props) => {
     event.preventDefault();
     const dinosaur = {};
     const newPaddock = props.findPaddockById(event.target.paddock.value);
-    if(props.dinosaur.type !== newPaddock.type){
-      alert(props.dinosaur.type+"'s cannot be transferred to "+newPaddock.name+ "(Type: "+newPaddock.type+")");
-    } else {
-      dinosaur.paddock = newPaddock._links.self.href;
-      props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
+    if (newPaddock) {
+      if(props.dinosaur.type === newPaddock.type){
+        dinosaur.paddock = newPaddock._links.self.href;
+        props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
+      } else {
+        alert("Dinosaur type: "+props.dinosaur.type+" cannot be transferred to the "+newPaddock.name+ " Paddock");
+      }
     }
   }
+
 
   return(
     <div className="component">

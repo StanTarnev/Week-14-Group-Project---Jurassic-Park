@@ -17,7 +17,7 @@ class Dinosaur extends Component{
       this.setState({
         belly: this.props.dinosaur.belly
       })
-      this.hungerTimer = setInterval(() => this.increaseHunger(), 5000);
+      this.hungerTimer = setInterval(() => this.increaseHunger(), 50000);
     }
   }
 
@@ -25,8 +25,6 @@ class Dinosaur extends Component{
     this.setState({
       belly: this.state.belly += 1
     })
-    // this.props.dinosaur.belly += 1;
-    // this.hungerTimer = setInterval(() => 1000);
   }
 
   render() {
