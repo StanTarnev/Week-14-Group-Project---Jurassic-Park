@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Dinosaur from './Dinosaur';
 
-const DinosaurDetails =(props)=> {
-
+const DinosaurDetails = (props) => {
 
   const options = props.paddocks.map((paddock, index) => {
     return <option key={index} value={paddock.id}>{paddock.name} ({paddock.type})</option>
@@ -11,14 +10,6 @@ const DinosaurDetails =(props)=> {
   const handleDinosaurDelete = () => {
     props.onDinosaurDelete(props.dinosaur.id)
   }
-
-
-
-
-
-  // handleDinosaurDelete () {
-  //   this.props.onDinosaurDelete(this.props.dinosaur.id)
-  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,12 +30,11 @@ const DinosaurDetails =(props)=> {
     event.preventDefault();
     const dinosaur = {};
     const newPaddock = props.findPaddockById(event.target.paddock.value);
-    if(props.dinosaur.type !== newPaddock.type || newPaddock.type == null){
+    if(props.dinosaur.type !== newPaddock.type){
       alert(props.dinosaur.type+"'s cannot be transferred to "+newPaddock.name+ "(Type: "+newPaddock.type+")");
     } else {
       dinosaur.paddock = newPaddock._links.self.href;
       props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
-
     }
   }
 
@@ -66,6 +56,6 @@ const DinosaurDetails =(props)=> {
         <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
       </div>
     </div>
-    )
+  )
 }
 export default DinosaurDetails
