@@ -17,7 +17,7 @@ const PaddockForm = (props) => {
       <h3>Add a new paddock</h3>
       <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Name" name="name"/>
-      <input type="number" placeholder="Capacity" name="capacity"/>
+      <input type="number" min="1" placeholder="Capacity" name="capacity"/>
       <select name="type">Type:
         <option value="herbivore">Herbivores Only</option>
         <option value="carnivore">Carnivores Only</option>

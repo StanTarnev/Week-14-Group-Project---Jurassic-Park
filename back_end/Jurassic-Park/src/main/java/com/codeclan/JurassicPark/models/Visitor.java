@@ -1,49 +1,55 @@
 package com.codeclan.JurassicPark.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name ="visitors")
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
-    @Column(name="name")
-    private String name ;
+
+    @Column(name = "date")
+    private String date;
 
 
-    @Column(name="fees")
-    private double fees;
+    @JsonIgnoreProperties("visitors")
+    @ManyToOne
+    @JoinColumn(name = "park_id", nullable=false)
+    private Park park ;
 
     public Visitor() {
     }
 
-    public Visitor(String name , int fees){
-        this.name = name ;
-        this.fees = fees;
+    public Visitor(String date,Park park ) {
+        this.date = date;
+        this.park= park;
     }
 
-    public double getFees() {
-        return fees;
+
+    public String getDate() {
+        return date;
     }
 
-    public void setFees(double fees) {
-        this.fees = fees;
-    }
-    public String getName() {
-        return name;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Long getId() {
         return id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Park getPark() {
+        return park;
     }
+
+    public void setPark(Park park) {
+        this.park = park;
+    }
+
+
 }
