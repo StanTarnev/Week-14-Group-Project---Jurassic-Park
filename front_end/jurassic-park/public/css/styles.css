@@ -39,7 +39,8 @@ body {
   display: flex;
   flex-direction: row;
   border: 1px solid black;
-  margin: 10px;
+  border-radius: 20px;
+
   padding: 20px;
   background-color: #f7f7ed;
   margin: auto;
@@ -47,8 +48,10 @@ body {
 
 .component {
   border: 1px solid black;
-  margin: 10px;
+  margin: auto;
   padding: 20px;
+  background-color: #f7f7ed;
+  border-radius: 20px;
 }
 
 li {
