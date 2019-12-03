@@ -20,7 +20,7 @@ const DinosaurList = (props) => {
 		<div className="buttons">
 			<a href="/dinosaurs/new"><button>Create Dinosaur</button></a>
 		</div>
-  		<ul>
+  		<ul className="container-list">
   		    {dinosaurs}
   		</ul>
     </Fragment>

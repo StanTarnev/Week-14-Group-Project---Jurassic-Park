@@ -15,9 +15,13 @@ class DinosaurFormContainer extends Component {
     })
   }
   render(){
-    return <DinosaurForm
+    return (
+    <div className="form">
+    <DinosaurForm
       handleDinosaurPost={this.handleDinosaurPost}
       paddocks={this.props.paddocks}/>
+    </div>
+    )
   }
 }
 

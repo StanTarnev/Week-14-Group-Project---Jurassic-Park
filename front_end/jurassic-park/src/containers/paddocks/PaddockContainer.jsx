@@ -6,8 +6,10 @@ class PaddockContainer extends Component {
   render() {
     return (
       <Fragment>
+
         <PaddockList
           paddocks={this.props.paddocks}/>
+    
       </Fragment>
     )
   }

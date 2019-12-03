@@ -15,7 +15,11 @@ class PaddockFormContainer extends Component {
     })
   }
   render(){
-    return <PaddockForm handlePaddockPost={this.handlePaddockPost}/>
+    return (
+      <div className="form">
+      <PaddockForm handlePaddockPost={this.handlePaddockPost}/>
+      </div>
+    )
   }
 }
 
