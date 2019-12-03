@@ -47,7 +47,7 @@ componentDidMount(){
     this.setState({
       dinosaurs: data[0]._embedded.dinosaurs,
       paddocks: data[1]._embedded.paddocks,
-      parks: data[2]._embedded.parks[0]
+      park: data[2]._embedded.parks[0]
     })
   })
 
@@ -65,7 +65,10 @@ getPaddockType(url){
 }
 
 addVisitors() {
-  this.state.visitors += 1
+  this.setState({
+    visitors: this.state.visitors +=1,
+    revenue: this.state.revenue +=5
+  })
 }
 
 closePark() {
@@ -155,7 +158,7 @@ handleUpdateDinosaur(id, dinosaur){
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
-                    <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
+                    <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <div className="buttons">
                         <button onClick={this.toggleOpenClose}>
                         {(this.state.parkOpen) ? "Close Park" : "Open Park"}

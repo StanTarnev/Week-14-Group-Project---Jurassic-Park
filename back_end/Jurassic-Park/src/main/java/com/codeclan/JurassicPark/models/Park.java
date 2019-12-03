@@ -24,24 +24,19 @@ public class Park {
 //    @Column(name = "date")
 //    private String  date;
 //
-    @Column(name = "visitorCount")
-    private int  visitorCount;
+//    @Column(name = "visitorCount")
+//    private int  visitorCount;
 
     @JsonIgnoreProperties("park")
     @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
     private List<Visitor> visitors;
-
-    @JsonIgnoreProperties("park")
-    @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
-    private List<FinancialRecord> financialRecords;
 
     public Park(double totalRevenue ,String date ) {
 //        this.dailyRevenue =0;
         this.totalRevenue=totalRevenue;
 
         this.visitors= new ArrayList<>();
-        this.visitorCount = 0;
-        this.financialRecords = new ArrayList<>();
+//        this.visitorCount = 0;
     }
 
     public Park() {
@@ -85,7 +80,7 @@ public class Park {
     }
 
     public void  addVisitors(Visitor visitor){
-      this.visitors.add(visitor);
+        this.visitors.add(visitor);
     }
 
 
@@ -108,19 +103,6 @@ public class Park {
         this.id = id;
     }
 
-    public int getVisitorCount() {
-        return visitorCount;
-    }
 
-    public void setVisitorCount(int visitorCount) {
-        this.visitorCount = visitorCount;
-    }
-
-    public List<FinancialRecord> getFinancialRecords() {
-        return financialRecords;
-    }
-
-    public void setFinancialRecords(List<FinancialRecord> financialRecords) {
-        this.financialRecords = financialRecords;
-    }
 }
+
