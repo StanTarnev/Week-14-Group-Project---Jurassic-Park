@@ -19,7 +19,6 @@ class MainContainer extends Component {
       paddocks: [],
       park: null ,
       visitorsCount: 0,
-      visitors1:[],
       revenue: 0,
       totalRevenue: 0,
       parkOpen: false,
@@ -41,17 +40,13 @@ componentDidMount(){
 
   const promise1 = request.get('/api/dinosaurs');
   const promise2 = request.get('/api/paddocks');
-  const promise3 = request.get('/api/visitors');
-  const promise4 = request.get('/park')
-  const promises = [promise1, promise2,promise3,promise4]
+  const promises = [promise1, promise2]
 
 
   Promise.all(promises).then((data) => {
     this.setState({
       dinosaurs: data[0]._embedded.dinosaurs,
-      paddocks: data[1]._embedded.paddocks,
-      visitors1: data[2]._embedded.visitors,
-      park: data[3]
+      paddocks: data[1]._embedded.paddocks
     })
   })
 
@@ -199,7 +194,8 @@ handleUpdateDinosaur(id, dinosaur){
           {/* ADD A DINOSAUR */}
             <Route exact path="/dinosaurs/new" render={(props) =>{
               return <DinosaurFormContainer
-                paddocks={this.state.paddocks}/>
+                paddocks={this.state.paddocks}
+                findPaddockById={this.findPaddockById}/>
             }}/>
 
           {/* VIEW A DINOSAUR BY ID */}

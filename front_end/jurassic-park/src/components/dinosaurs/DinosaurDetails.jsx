@@ -29,11 +29,9 @@ const DinosaurDetails = (props) => {
   const handleTransferSubmit = (event) => {
     event.preventDefault();
     const dinosaur = {};
-
-    let newPaddock = props.findPaddockById(event.target.paddock.value);
+    const newPaddock = props.findPaddockById(event.target.paddock.value);
     if(props.dinosaur.type === newPaddock.type){
       dinosaur.paddock = newPaddock._links.self.href;
-      debugger;
       props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
     } else {
       alert("!!!")

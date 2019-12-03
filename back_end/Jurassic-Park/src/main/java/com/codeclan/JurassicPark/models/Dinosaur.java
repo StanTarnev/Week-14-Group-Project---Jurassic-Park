@@ -44,15 +44,15 @@ public class Dinosaur
     private Paddock paddock;
 
 
-    public Dinosaur(String name, String species, int belly, String gender, int age, String type, Paddock paddock) {
+    public Dinosaur(String name, String species, int belly, String gender, String type, Paddock paddock) {
         this.name = name;
         this.species = species;
         this.belly = belly;
         this.gender = gender;
-        this.age = age;
+        this.age = 0;
         this.type = type;
         this.paddock = paddock;
-        this.img= getImgUrl(species);
+        this.img = getImgUrl(species);
     }
 
     public Dinosaur() {
