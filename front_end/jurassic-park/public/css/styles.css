@@ -68,7 +68,7 @@ a {
   color: black;
 }
 
-a:hover{
+header a:hover{
   color:  #d1c4b4;
   background-color: Black;
   border-radius: 2px;
