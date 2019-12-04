@@ -138,3 +138,13 @@ h3 {
   min-width: 160px;
   height: fit-content;
 }
+
+#curve-chart {
+  height: 500px;
+  width: 900px;
+  margin: auto;
+}
+
+#dashboard-container {
+  width: 100%;
+}
