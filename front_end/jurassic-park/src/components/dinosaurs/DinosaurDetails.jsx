@@ -6,6 +6,7 @@ const DinosaurDetails = (props) => {
   const handleDinosaurDelete = () => {
     props.onDinosaurDelete(props.dinosaur.id)
   }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -16,7 +17,8 @@ const DinosaurDetails = (props) => {
       dinosaur.belly = props.dinosaur.belly -= 1
     } else {
       dinosaur.belly = 0
-    }    if (dinosaur.belly > 0) {
+    }
+    if (dinosaur.belly > 0) {
       props.handleFeedDinosaur(props.dinosaur.id, dinosaur)
     }
   }
