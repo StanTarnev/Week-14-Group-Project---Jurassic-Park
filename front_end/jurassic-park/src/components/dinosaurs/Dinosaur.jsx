@@ -34,7 +34,7 @@ class Dinosaur extends Component{
 
     return(
       <Fragment>
-      <div className="component">
+      <div className="component" id="element">
       <h3>{this.props.dinosaur.name}</h3>
       <p>Species: {this.props.dinosaur.species}</p>
       <p>Type: {this.props.dinosaur.type}</p>

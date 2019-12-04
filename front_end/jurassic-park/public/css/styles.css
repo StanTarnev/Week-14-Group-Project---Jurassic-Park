@@ -2,7 +2,7 @@
   display: inline;
 }
 header {
-  background-color: #f7f7ed;
+  background-color: #d1c4b4;
   position: fixed;
   top: 0;
   left: 0;
@@ -24,11 +24,12 @@ header li {
   margin: 20px;
 }
 body {
-  height: 125vh;
+  height: 100%;
   font-family: sans-serif;
   background-image: url("../images/jurassic_park_jungle_island.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 #root {
   margin-top: 80px;
@@ -38,18 +39,19 @@ body {
 
 .main-container {
   display: flex;
-  width: 100%;
+  width: 96%;
   position: fixed;
-  justify-content: space-evenly;
-
+  justify-content: space-between;
+  margin-top: 50px;
 }
 
 .component {
   border: 1px solid black;
-  margin: auto;
+  margin: 10px auto;
   padding: 20px;
-  background-color: #f7f7ed;
+  background-color: white;
   border-radius: 20px;
+  padding-top: 0px;
 }
 
 li {
@@ -66,6 +68,13 @@ a {
   color: black;
 }
 
+header a:hover{
+  color:  #d1c4b4;
+  background-color: Black;
+  border-radius: 8px;
+  PADDING: 10px;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -80,23 +89,27 @@ h3 {
   flex-direction: row;
   border: 1px solid black;
   border-radius: 20px;
-  margin: auto;
-  padding: 10px;
-  background-color: white;
+  margin: 20px;
+  padding: 10px 0 0 0;
+  background-color: #d1c4b4;
+  height: fit-content;
+  width: fit-content;
 }
 
 .paddock-container {
   flex-direction: row;
   border: 1px solid black;
   border-radius: 20px;
-  margin: auto;
+  margin: 20px;
   padding: 10px;
-  background-color: white;
+  background-color: #d1c4b4;
+  height: fit-content;
+  width: fit-content;
 }
 
 .form {
     margin: auto;
-    background-color: #f7f7ed;
+    background-color: #d1c4b4;
     border-radius: 20px;
     padding: 20px;
     padding-top:0px;
@@ -105,5 +118,23 @@ h3 {
 
 .container-list {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#chart_div {
+  padding-top: 20px;
+}
+
+#element {
+  background-color: white;
+}
+
+#stats, #dinosaur-details, #dashboard-container, #paddock-details {
+  background-color: #d1c4b4;
+}
+
+#stats {
+  min-width: 160px;
+  height: fit-content;
 }

@@ -42,7 +42,7 @@ const DinosaurDetails = (props) => {
 
 
   return(
-    <div className="component">
+    <div className="component"  id="dinosaur-details">
       <h3>Dinosaur Details</h3>
       <Dinosaur dinosaur={props.dinosaur}/>
       <div className="buttons">

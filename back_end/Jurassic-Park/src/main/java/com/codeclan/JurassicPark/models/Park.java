@@ -13,7 +13,7 @@ public class Park {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id ;
+    private Long id;
 
 //    @Column(name = "dailyRevenue")
 //    private double dailyRevenue;
@@ -31,7 +31,10 @@ public class Park {
     @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
     private List<Visitor> visitors;
 
+
     public Park(double totalRevenue) {
+
+
 //        this.dailyRevenue =0;
         this.totalRevenue=totalRevenue;
 

@@ -128,7 +128,12 @@ public class Dinosaur
         hm.put("Cerasinops", "https://upload.wikimedia.org/wikipedia/commons/d/d5/Cerasinops_BW.jpg");
         hm.put("Archaeoceratops", "https://alchetron.com/cdn/auroraceratops-cc5392db-8159-466e-94c3-775d5660da3-resize-750.jpg");
         hm.put("Microceratops", "https://i.pinimg.com/originals/51/e8/32/51e832eb88f5032311944fc8a40ffd80.png");
-      if (hm.containsKey(species)){
+        hm.put("Leptoceratops","http://www.dinosaurusi.com/video_slike/Vj9xlC7mwS-Leptoceratops,_dinosaurs,_Cretaceous_Period,_herbivores-011.jpg");
+        hm.put("Bagaceratops","https://vignette.wikia.nocookie.net/devon-dink-dino/images/f/f3/Protoceratops.jpg/revision/latest?cb=20130404232541");
+        hm.put("Protoceratops","https://cdn.thinglink.me/api/image/583409781968994305/1240/10/scaletowidth");
+        hm.put("Leaellynasaura","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRlmNT6RONFoWrO0wJdNvWwpS6FEVy4uDNaGlioWxZw6P1ejsI&s");
+        hm.put("Dracorex","https://www.schleich-s.com/media/360/content/15014/spin/650/001.jpg");
+        if (hm.containsKey(species)){
            url = hm.get(species);
       }
       return this.img = url;

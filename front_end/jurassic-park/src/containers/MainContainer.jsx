@@ -30,9 +30,12 @@ class MainContainer extends Component {
   this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
   this.closePark = this.closePark.bind(this);
   this.visitorTimer = null;
+
 }
 
 componentDidMount(){
+
+  // this.visitorTimer = setInterval(() => this.addVisitors(), 10000);
 
   const request = new Request();
 
@@ -136,7 +139,7 @@ handlePaddockDelete(id){
     });
   }
 
-handleUpdateDinosaur(id, dinosaur){
+handleFeedDinosaur(id, dinosaur){
   const request = new Request();
   request.patch('/api/dinosaurs/'+id, dinosaur)
   .then(() => {
@@ -154,27 +157,26 @@ handleUpdateDinosaur(id, dinosaur){
               return (
                 <Fragment>
                   <div className="main-container">
-                  <div className="main-container">
+
                     <div className="dinosaur-container">
                       <DinosaurContainer
                       dinosaurs={this.state.dinosaurs}/>
                     </div>
-                    <div className="paddock-container">
-                      <PaddockContainer
-                      paddocks={this.state.paddocks}/>
-                    </div>
-                    </div>
+
+
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
                     <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
-                      <div className="buttons">
-                        <button onClick={this.toggleOpenClose}>
-                        {(this.state.parkOpen) ? "Close Park" : "Open Park"}
-                        </button>
-                      </div>
+                    <button onClick={this.toggleOpenClose}>
+                     {(this.state.parkOpen) ? "Close Park" : "Open Park"}
+                     </button>
                       <p>Visitor Count: {this.state.visitors}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
+                    </div>
+                    <div className="paddock-container">
+                      <PaddockContainer
+                      paddocks={this.state.paddocks}/>
                     </div>
                   </div>
                 </Fragment>
@@ -183,8 +185,7 @@ handleUpdateDinosaur(id, dinosaur){
           {/* ADD A DINOSAUR */}
             <Route exact path="/dinosaurs/new" render={(props) =>{
               return <DinosaurFormContainer
-                paddocks={this.state.paddocks}
-                findPaddockById={this.findPaddockById}/>
+                paddocks={this.state.paddocks}/>
             }}/>
 
           {/* VIEW A DINOSAUR BY ID */}
@@ -193,9 +194,7 @@ handleUpdateDinosaur(id, dinosaur){
               const dinosaur = this.findDinosaurById(id);
               return <DinosaurDetails
                 dinosaur={dinosaur}
-                paddocks={this.state.paddocks}
-                findPaddockById={this.findPaddockById}
-                handleUpdateDinosaur={this.handleUpdateDinosaur}
+                handleFeedDinosaur={this.handleFeedDinosaur}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
 
@@ -206,6 +205,8 @@ handleUpdateDinosaur(id, dinosaur){
 
           {/* VIEW A PADDOCK BY ID */}
             <Route exact path="/paddocks/:id" render={(props) => {
+              const dino_id = props.match.params.id;
+              const dinosaur = this.findDinosaurById(dino_id);
               const id = props.match.params.id;
               const paddock = this.findPaddockById(id);
               return <PaddockDetails
