@@ -21,7 +21,8 @@ class MainContainer extends Component {
       visitors: 0,
       revenue: 0,
       parkOpen: false,
-      date: null
+      date: null,
+      totalRevenue: 0
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
@@ -58,7 +59,8 @@ componentDidMount(){
 
 addVisitors() {
   this.setState({
-    visitors: this.state.visitors +=1
+    visitors: this.state.visitors +=1,
+    revenue: this.state.revenue += 5
   });
 }
 
@@ -149,7 +151,7 @@ handleUpdateDinosaur(id, dinosaur){
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
-                    <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
+                    <p>Total Revenue: £ {this.state.totalRevenue}</p>
                       <div className="buttons">
                         <button onClick={this.toggleOpenClose}>
                         {(this.state.parkOpen) ? "Close Park" : "Open Park"}
