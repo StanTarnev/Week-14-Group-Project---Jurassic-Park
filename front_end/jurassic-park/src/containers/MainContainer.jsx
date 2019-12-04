@@ -28,6 +28,7 @@ class MainContainer extends Component {
   this.findDinosaurById = this.findDinosaurById.bind(this);
   this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
   this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
+  this.handleUpdateDinosaur = this.handleUpdateDinosaur.bind(this);
   this.closePark = this.closePark.bind(this);
   this.visitorTimer = null;
 
@@ -84,7 +85,6 @@ closePark() {
   let parkToPost = {
     totalRevenue: updatedPark.totalRevenue
   };
-  debugger;
   const request = new Request();
   request.patch('/api/parks/' + updatedPark.id, parkToPost).then(() => {
     // window.location = '/'
@@ -138,6 +138,14 @@ handlePaddockDelete(id){
     window.location ='/';
     });
   }
+
+  handleUpdateDinosaur(id, dinosaur){
+  const request = new Request();
+  request.patch('/api/dinosaurs/'+id, dinosaur)
+  .then(() => {
+    window.location = '/dinosaurs/'+id;
+  })
+}
 
 handleFeedDinosaur(id, dinosaur){
   const request = new Request();
@@ -196,6 +204,7 @@ handleFeedDinosaur(id, dinosaur){
                 dinosaur={dinosaur}
                 paddocks={this.state.paddocks}
                 handleFeedDinosaur={this.handleFeedDinosaur}
+                handleUpdateDinosaur={this.handleUpdateDinosaur}
                 findPaddockById={this.findPaddockById}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
