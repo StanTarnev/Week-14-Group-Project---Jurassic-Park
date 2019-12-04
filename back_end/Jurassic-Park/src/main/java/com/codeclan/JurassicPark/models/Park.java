@@ -31,7 +31,7 @@ public class Park {
     @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
     private List<Visitor> visitors;
 
-    public Park(double totalRevenue ,String date ) {
+    public Park(double totalRevenue) {
 //        this.dailyRevenue =0;
         this.totalRevenue=totalRevenue;
 

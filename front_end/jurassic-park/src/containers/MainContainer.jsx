@@ -21,8 +21,8 @@ class MainContainer extends Component {
       visitors: 0,
       revenue: 0,
       parkOpen: false,
-      date: null,
-      totalRevenue: 0
+      date: null
+      // totalRevenue: 0
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
@@ -65,14 +65,30 @@ addVisitors() {
 }
 
 closePark() {
+  // stop the visitor counter going up
   clearTimeout(this.visitorTimer);
+
+  let updatedPark = this.state.park;
+  updatedPark.totalRevenue += this.state.revenue;
   this.setState({
     visitors: 0,
-    totalRevenue: this.state.totalRevenue += this.state.revenue,
+    park: updatedPark,
     revenue: 0,
     parkOpen: false
+  });
+
+  // post the park with updated revenue to database
+  let parkToPost = {
+    totalRevenue: updatedPark.totalRevenue
+  };
+  debugger;
+  const request = new Request();
+  request.patch('/api/parks/' + updatedPark.id, parkToPost).then(() => {
+    // window.location = '/'
   })
 }
+
+/**/
 
 openPark = () => {
   this.setState({
@@ -151,7 +167,7 @@ handleUpdateDinosaur(id, dinosaur){
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
-                    <p>Total Revenue: £ {this.state.totalRevenue}</p>
+                    <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
                       <div className="buttons">
                         <button onClick={this.toggleOpenClose}>
                         {(this.state.parkOpen) ? "Close Park" : "Open Park"}
