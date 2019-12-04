@@ -14,7 +14,7 @@ const Paddock = ({paddock}) => {
 
   return(
   <Fragment>
-    <div className="component">
+    <div className="component" id="element">
       <h3>{paddock.name}</h3>
       <p>Type: {paddock.type}</p>
       <p>Capacity: {paddock.capacity}</p>

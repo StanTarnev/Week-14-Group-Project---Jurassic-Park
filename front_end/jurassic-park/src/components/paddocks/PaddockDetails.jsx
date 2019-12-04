@@ -8,7 +8,7 @@ const PaddockDetails = (props) => {
   }
 
   return(
-    <div className="component">
+    <div className="component" id="paddock-details">
       <h3>Paddock Details</h3>
       <Paddock paddock={props.paddock}/>
       <div className="buttons">
