@@ -4,6 +4,6 @@ import org.springframework.data.rest.core.config.Projection;
 
 @Projection(name= "embedPark", types = Park.class)
 public interface EmbedPark {
-   double getDailyRevenue();
+    Long getId();
     int getVisitorCount();
 }
