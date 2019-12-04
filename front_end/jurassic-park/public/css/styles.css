@@ -29,6 +29,7 @@ body {
   background-image: url("../images/jurassic_park_jungle_island.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 #root {
   margin-top: 80px;
@@ -46,7 +47,7 @@ body {
 
 .component {
   border: 1px solid black;
-  margin: auto;
+  margin: 10px auto;
   padding: 20px;
   background-color: white;
   border-radius: 20px;
@@ -67,6 +68,13 @@ a {
   color: black;
 }
 
+a:hover{
+  color:  #d1c4b4;
+  background-color: Black;
+  border-radius: 2px;
+  PADDING: 10px;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -84,6 +92,8 @@ h3 {
   margin: 20px;
   padding: 10px 0 0 0;
   background-color: #d1c4b4;
+  height: fit-content;
+  width: fit-content;
 }
 
 .paddock-container {
@@ -93,6 +103,8 @@ h3 {
   margin: 20px;
   padding: 10px;
   background-color: #d1c4b4;
+  height: fit-content;
+  width: fit-content;
 }
 
 .form {
@@ -120,4 +132,9 @@ h3 {
 
 #stats, #dinosaur-details, #dashboard-container, #paddock-details {
   background-color: #d1c4b4;
+}
+
+#stats {
+  min-width: 160px;
+  height: fit-content;
 }
