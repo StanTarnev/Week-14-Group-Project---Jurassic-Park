@@ -148,3 +148,9 @@ h3 {
 #dashboard-container {
   width: 100%;
 }
+
+td {
+  border: 1px solid Black;
+  border-radius: 2px;
+  }
+}

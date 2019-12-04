@@ -35,14 +35,38 @@ class Dinosaur extends Component{
     return(
       <Fragment>
       <div className="component" id="element">
-      <h3>{this.props.dinosaur.name}</h3>
-      <p>Species: {this.props.dinosaur.species}</p>
-      <p>Type: {this.props.dinosaur.type}</p>
-      <p>Hunger: {this.state.belly}</p>
-      <p>Gender: {this.props.dinosaur.gender}</p>
-      <p>Age: {this.props.dinosaur.age}</p>
-      <img src={this.props.dinosaur.img} alt="dinosaur"/>
-      <p>Paddock: {this.props.dinosaur.paddock.name}</p>
+        <table>
+          <tr>
+            <th colspan="2"><h3>{this.props.dinosaur.name}</h3></th>
+          </tr>
+          <tr>
+            <td className="first">Species:</td>
+            <td>{this.props.dinosaur.species}</td>
+          </tr>
+          <tr>
+            <td>Type:</td>
+            <td>{this.props.dinosaur.type}</td>
+          </tr>
+          <tr>
+            <td>Hunger:</td>
+            <td>{this.state.belly}</td>
+          </tr>
+          <tr>
+            <td>Gender:</td>
+            <td>{this.props.dinosaur.gender}</td>
+          </tr>
+          <tr>
+            <td>Age:</td>
+            <td>{this.props.dinosaur.age}</td>
+          </tr>
+          <tr>
+            <td>Paddock:</td>
+            <td>{this.props.dinosaur.paddock.name}</td>
+          </tr>
+          <tr>
+            <td colspan="2"><img src={this.props.dinosaur.img} alt="dinosaur"/></td>
+          </tr>
+        </table>
       </div>
       </Fragment>
     )
