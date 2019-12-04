@@ -4,9 +4,9 @@ const NavBar = (props) => {
   return (
     <header>
 
-    <img src="/favicon.ico" alt="Logo"/>
+    <img src="/images/jurassic_park_logo.png" alt="Logo"/>
 
-      <h1>Jurassic Park</h1>
+  
         <ul>
           <li className="navLink">
             <a href="/">View Park</a>

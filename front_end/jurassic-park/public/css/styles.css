@@ -2,7 +2,7 @@
   display: inline;
 }
 header {
-  background-color: #f7f7ed;
+  background-color: #d1c4b4;
   position: fixed;
   top: 0;
   left: 0;
@@ -81,23 +81,23 @@ h3 {
   flex-direction: row;
   border: 1px solid black;
   border-radius: 20px;
-  margin: auto;
-  padding: 10px;
-  background-color: #f7f7ed;
+  margin: 20px;
+  padding: 10px 0 0 0;
+  background-color: #d1c4b4;
 }
 
 .paddock-container {
   flex-direction: row;
   border: 1px solid black;
   border-radius: 20px;
-  margin: auto;
+  margin: 20px;
   padding: 10px;
-  background-color: #f7f7ed;
+  background-color: #d1c4b4;
 }
 
 .form {
     margin: auto;
-    background-color: #f7f7ed;
+    background-color: #d1c4b4;
     border-radius: 20px;
     padding: 20px;
     padding-top:0px;
@@ -106,6 +106,7 @@ h3 {
 
 .container-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
@@ -118,5 +119,5 @@ h3 {
 }
 
 #stats, #dinosaur-details, #dashboard-container, #paddock-details {
-  background-color: #f7f7ed;
+  background-color: #d1c4b4;
 }
