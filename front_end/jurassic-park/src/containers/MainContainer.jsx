@@ -194,6 +194,7 @@ handleFeedDinosaur(id, dinosaur){
               const dinosaur = this.findDinosaurById(id);
               return <DinosaurDetails
                 dinosaur={dinosaur}
+                paddocks={this.state.paddocks}
                 handleFeedDinosaur={this.handleFeedDinosaur}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
