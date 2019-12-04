@@ -196,6 +196,7 @@ handleFeedDinosaur(id, dinosaur){
                 dinosaur={dinosaur}
                 paddocks={this.state.paddocks}
                 handleFeedDinosaur={this.handleFeedDinosaur}
+                findPaddockById={this.findPaddockById}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
 
