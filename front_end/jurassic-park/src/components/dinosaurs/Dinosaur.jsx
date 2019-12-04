@@ -25,6 +25,10 @@ class Dinosaur extends Component{
     this.setState({
       belly: this.state.belly += 1
     })
+    if (this.state.belly >= 15) {
+      this.props.dinosaurPassesAway();
+      alert("You have lost a dinosaur due to malnutrition!")
+    }
     // this.props.dinosaur.belly += 1;
     // this.hungerTimer = setInterval(() => 1000);
   }

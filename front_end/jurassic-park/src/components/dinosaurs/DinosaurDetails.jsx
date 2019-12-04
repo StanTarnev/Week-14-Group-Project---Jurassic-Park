@@ -50,7 +50,7 @@ const DinosaurDetails =(props)=> {
   return(
     <div className="component"  id="dinosaur-details">
       <h3>Dinosaur Details</h3>
-      <Dinosaur dinosaur={props.dinosaur}/>
+      <Dinosaur dinosaur={props.dinosaur} dinosaurPassesAway={handleDinosaurDelete}/>
       <div className="buttons">
         <form onSubmit={handleSubmit}>
           <button type="submit">Feed Dinosaur</button>

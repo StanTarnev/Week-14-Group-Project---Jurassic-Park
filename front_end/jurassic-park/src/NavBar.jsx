@@ -6,7 +6,7 @@ const NavBar = (props) => {
 
     <img src="/images/jurassic_park_logo.png" alt="Logo"/>
 
-  
+
         <ul>
           <li className="navLink">
             <a href="/">View Park</a>
@@ -14,9 +14,7 @@ const NavBar = (props) => {
           <li className="navLink">
             <a href="/dashboard">View Dashboard</a>
           </li>
-          <li>
-            <a>Help</a>
-          </li>
+        
         </ul>
 
     </header>
