@@ -176,9 +176,11 @@ handleFeedDinosaur(id, dinosaur){
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
                     <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
+                    <div className="buttons">
                     <button onClick={this.toggleOpenClose}>
                      {(this.state.parkOpen) ? "Close Park" : "Open Park"}
                      </button>
+                     </div>
                       <p>Visitor Count: {this.state.visitors}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
                     </div>

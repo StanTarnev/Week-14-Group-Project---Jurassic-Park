@@ -44,15 +44,23 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Ticket Sales', 'Revenue'],
-          ['2016',  11200,      51200],
-          ['2017',  11500,      70220],
-          ['2018',  11800,       75632],
-          ['2019',  21000,      85981]
+          ['Year', '2018', '2019'],
+          ['JAN',  11200,      51200],
+          ['FEB',  11580,      70220],
+          ['MAR',  11809,       75632],
+          ['APR',  21000,      85981]
+          ['MAY',  45321,      63481]
+          ['JUN',  70432,      72981]
+          ['JUL',  60876,      85981]
+          ['AUG',  56876,      100081]
+          ['SEP',  70322,      55981]
+          ['OCT',  31654,      46081]
+          ['NOV',  27800,      30981]
+          ['DEC',  21000,      31281]
         ]);
 
         var options = {
-          title: 'Jurassic Park: Yearly Financial Performace',
+          title: 'Jurassic Park: Financial Performace',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
