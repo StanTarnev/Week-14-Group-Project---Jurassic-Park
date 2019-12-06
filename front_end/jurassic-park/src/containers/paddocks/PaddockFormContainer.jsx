@@ -17,7 +17,8 @@ class PaddockFormContainer extends Component {
   render(){
     return (
       <div className="form">
-      <PaddockForm handlePaddockPost={this.handlePaddockPost}/>
+      <PaddockForm
+      handlePaddockPost={this.handlePaddockPost}/>
       </div>
     )
   }

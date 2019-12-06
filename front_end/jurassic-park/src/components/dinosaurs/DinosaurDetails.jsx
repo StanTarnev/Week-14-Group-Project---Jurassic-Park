@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Dinosaur from './Dinosaur';
 
-const DinosaurDetails =(props)=> {
-
+const DinosaurDetails = (props) => {
 
   const options = props.paddocks.map((paddock, index) => {
     return <option key={index} value={paddock.id}>{paddock.name} ({paddock.type})</option>
@@ -11,14 +10,6 @@ const DinosaurDetails =(props)=> {
   const handleDinosaurDelete = () => {
     props.onDinosaurDelete(props.dinosaur.id)
   }
-
-
-
-
-
-  // handleDinosaurDelete () {
-  //   this.props.onDinosaurDelete(this.props.dinosaur.id)
-  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,13 +30,16 @@ const DinosaurDetails =(props)=> {
     event.preventDefault();
     const dinosaur = {};
     const newPaddock = props.findPaddockById(event.target.paddock.value);
-    if(props.dinosaur.type === newPaddock.type){
-      dinosaur.paddock = newPaddock._links.self.href;
-      props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
-    } else {
-      alert("!!!")
+    if (newPaddock) {
+      if(props.dinosaur.type === newPaddock.type){
+        dinosaur.paddock = newPaddock._links.self.href;
+        props.handleUpdateDinosaur(props.dinosaur.id, dinosaur);
+      } else {
+        alert("Dinosaur type: "+props.dinosaur.type+" cannot be transferred to the "+newPaddock.name+ " Paddock");
+      }
     }
   }
+
 
   return(
     <div className="component"  id="dinosaur-details">
@@ -57,6 +51,7 @@ const DinosaurDetails =(props)=> {
         </form>
         <form onSubmit={handleTransferSubmit}>
           <select name="paddock">
+          <option selected disabled value="none">Select a paddock</option>
             {options}
           </select>
           <button type="submit">Transfer Paddock</button>
@@ -64,6 +59,6 @@ const DinosaurDetails =(props)=> {
         <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
       </div>
     </div>
-    )
+  )
 }
 export default DinosaurDetails

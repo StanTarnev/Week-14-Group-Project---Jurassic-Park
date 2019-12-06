@@ -18,6 +18,7 @@ class DinosaurFormContainer extends Component {
     return (
     <div className="form">
     <DinosaurForm
+      findPaddockById={this.props.findPaddockById}
       handleDinosaurPost={this.handleDinosaurPost}
       paddocks={this.props.paddocks}/>
     </div>

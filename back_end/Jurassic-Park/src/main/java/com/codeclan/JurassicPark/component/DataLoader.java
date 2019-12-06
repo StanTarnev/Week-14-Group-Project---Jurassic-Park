@@ -32,7 +32,7 @@ public class DataLoader implements ApplicationRunner{
     }
 
     public void run(ApplicationArguments args) throws Exception  {
-        Park park = new Park (200,"12/02/2019");
+        Park park = new Park (200);
         parkRepository.save(park);
 
 

@@ -15,38 +15,42 @@ class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
+      park: {},
       dinosaurs: [],
       paddocks: [],
-      park: null ,
-      visitorsCount: 0,
+      visitors: 0,
       revenue: 0,
-      totalRevenue: 0,
       parkOpen: false,
       date: null
+      // totalRevenue: 0
   }
   this.findPaddockById = this.findPaddockById.bind(this);
   this.findDinosaurById = this.findDinosaurById.bind(this);
   this.handleDinosaurDelete = this.handleDinosaurDelete.bind(this);
   this.handlePaddockDelete = this.handlePaddockDelete.bind(this);
-  this.addVisitors = this.addVisitors.bind(this);
+  this.handleUpdateDinosaur = this.handleUpdateDinosaur.bind(this);
   this.closePark = this.closePark.bind(this);
-  this.getPaddockType = this.getPaddockType.bind(this);
   this.visitorTimer = null;
+
 }
 
 componentDidMount(){
+
+  // this.visitorTimer = setInterval(() => this.addVisitors(), 10000);
 
   const request = new Request();
 
   const promise1 = request.get('/api/dinosaurs');
   const promise2 = request.get('/api/paddocks');
-  const promises = [promise1, promise2]
+  const promise3 = request.get('/api/parks');
+  const promises = [promise1, promise2, promise3]
 
-
-  Promise.all(promises).then((data) => {
+  Promise.all(promises)
+  .then((data) => {
     this.setState({
       dinosaurs: data[0]._embedded.dinosaurs,
-      paddocks: data[1]._embedded.paddocks
+      paddocks: data[1]._embedded.paddocks,
+      park: data[2]._embedded.parks[0]
     })
   })
 
@@ -57,54 +61,42 @@ componentDidMount(){
   })
 }
 
-getPaddockType(url){
-  const request = new Request();
-  const data = request.get(url);
-  return data.type;
-}
-
-
 addVisitors() {
-
-  const request = new Request();
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-
-today = mm + '/' + dd + '/' + yyyy;
-  const visitor ={
-    "date": today
-  };
-  request.post('api/visitors', visitor).then(() => {
-
-  })
-
-  const park = request.get('/park')
-  const promises = [park]
-  Promise.all(promises).then((data) => {
-    this.setState({
-      visitorsCount: data[0].visitorCount,
-      revenue: data[0].dailyRevenue
-    });
-  })
-
+  this.setState({
+    visitors: this.state.visitors +=1,
+    revenue: this.state.revenue += 5
+  });
 }
 
 closePark() {
+  // stop the visitor counter going up
   clearTimeout(this.visitorTimer);
+
+  let updatedPark = this.state.park;
+  updatedPark.totalRevenue += this.state.revenue;
   this.setState({
     visitors: 0,
-    totalRevenue: this.state.totalRevenue += this.state.revenue,
+    park: updatedPark,
     revenue: 0,
     parkOpen: false
   });
+
+  // post the park with updated revenue to database
+  let parkToPost = {
+    totalRevenue: updatedPark.totalRevenue
+  };
+  const request = new Request();
+  request.patch('/api/parks/' + updatedPark.id, parkToPost).then(() => {
+    // window.location = '/'
+  })
 }
+
+/**/
+
 openPark = () => {
   this.setState({
     parkOpen: true
-  });
-
+  })
   this.visitorTimer = setInterval(() => this.addVisitors(), 1000);
 }
 
@@ -115,7 +107,7 @@ toggleOpenClose = () => {
    } else {
       this.openPark();
    }
-};
+}
 
 findDinosaurById(id){
       const dinosaur = this.state.dinosaurs.find((dinosaur) => {
@@ -147,7 +139,15 @@ handlePaddockDelete(id){
     });
   }
 
-handleUpdateDinosaur(id, dinosaur){
+  handleUpdateDinosaur(id, dinosaur){
+  const request = new Request();
+  request.patch('/api/dinosaurs/'+id, dinosaur)
+  .then(() => {
+    window.location = '/dinosaurs/'+id;
+  })
+}
+
+handleFeedDinosaur(id, dinosaur){
   const request = new Request();
   request.patch('/api/dinosaurs/'+id, dinosaur)
   .then(() => {
@@ -175,13 +175,13 @@ handleUpdateDinosaur(id, dinosaur){
                     <div id="stats" className="component">
                     <h3>Today's Date:</h3>
                     <h3>{this.state.date}</h3>
-                    <p>Total Revenue: £ {this.state.totalRevenue}</p>
-                      <div className="buttons">
-                        <button onClick={this.toggleOpenClose}>
-                        {(this.state.parkOpen) ? "Close Park" : "Open Park"}
-                        </button>
-                      </div>
-                      <p>Visitor Count: {this.state.visitorCount}</p>
+                    <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
+                    <div className="buttons">
+                    <button onClick={this.toggleOpenClose}>
+                     {(this.state.parkOpen) ? "Close Park" : "Open Park"}
+                     </button>
+                     </div>
+                      <p>Visitor Count: {this.state.visitors}</p>
                       <p>Daily Revenue: £{this.state.revenue}</p>
                     </div>
                     <div className="paddock-container">
@@ -195,8 +195,7 @@ handleUpdateDinosaur(id, dinosaur){
           {/* ADD A DINOSAUR */}
             <Route exact path="/dinosaurs/new" render={(props) =>{
               return <DinosaurFormContainer
-                paddocks={this.state.paddocks}
-                findPaddockById={this.findPaddockById}/>
+                paddocks={this.state.paddocks}/>
             }}/>
 
           {/* VIEW A DINOSAUR BY ID */}
@@ -206,8 +205,9 @@ handleUpdateDinosaur(id, dinosaur){
               return <DinosaurDetails
                 dinosaur={dinosaur}
                 paddocks={this.state.paddocks}
-                findPaddockById={this.findPaddockById}
+                handleFeedDinosaur={this.handleFeedDinosaur}
                 handleUpdateDinosaur={this.handleUpdateDinosaur}
+                findPaddockById={this.findPaddockById}
                 onDinosaurDelete={this.handleDinosaurDelete}/>
             }}/>
 
@@ -218,6 +218,8 @@ handleUpdateDinosaur(id, dinosaur){
 
           {/* VIEW A PADDOCK BY ID */}
             <Route exact path="/paddocks/:id" render={(props) => {
+              const dino_id = props.match.params.id;
+              const dinosaur = this.findDinosaurById(dino_id);
               const id = props.match.params.id;
               const paddock = this.findPaddockById(id);
               return <PaddockDetails

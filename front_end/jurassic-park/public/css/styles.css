@@ -140,6 +140,22 @@ h3 {
   height: fit-content;
 }
 
+#curve-chart {
+  height: 500px;
+  width: 900px;
+  margin: auto;
+}
+
+#dashboard-container {
+  width: 100%;
+}
+
+td {
+  border: 1px solid Black;
+  border-radius: 2px;
+}
+
+
 button:hover {
   background-color: black;
   color:  #d1c4b4;

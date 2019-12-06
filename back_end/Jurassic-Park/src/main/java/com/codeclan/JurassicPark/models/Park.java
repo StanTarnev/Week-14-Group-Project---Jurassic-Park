@@ -13,17 +13,17 @@ public class Park {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id ;
+    private Long id;
 
-    @Column(name = "dailyRevenue")
-    private double dailyRevenue;
+//    @Column(name = "dailyRevenue")
+//    private double dailyRevenue;
 
     @Column(name = "totalRevenue")
     private double totalRevenue;
-
-    @Column(name = "date")
-    private String  date;
-
+//
+//    @Column(name = "date")
+//    private String  date;
+//
     @Column(name = "visitorCount")
     private int  visitorCount;
 
@@ -31,31 +31,34 @@ public class Park {
     @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
     private List<Visitor> visitors;
 
-    public Park(double totalRevenue ,String date ) {
-        this.dailyRevenue =0;
+
+    public Park(double totalRevenue) {
+
+
+//        this.dailyRevenue =0;
         this.totalRevenue=totalRevenue;
-        this.date=date ;
+
         this.visitors= new ArrayList<>();
         this.visitorCount = 0;
     }
 
     public Park() {
     }
-        public double getDailyRevenue() {
+//        public double getDailyRevenue() {
+//
+//        return this.dailyRevenue =this.visitors.size()* 5;
+//    }
 
-        return this.dailyRevenue =this.visitors.size()* 5;
-    }
-
-    public void setDailyRevenue(double dailyRevenue) {
-        this.dailyRevenue = dailyRevenue;
-    }
-
-    public double getVisitorCount() {
-        return this.visitorCount=this.visitors.size();
-    }
+//    public void setDailyRevenue(double dailyRevenue) {
+//        this.dailyRevenue = dailyRevenue;
+//    }
+//
+//    public double getVisitorCount() {
+//        return this.visitorCount=this.visitors.size();
+//    }
 
     public double getTotalRevenue() {
-        totalRevenue+=dailyRevenue;
+//        totalRevenue+=dailyRevenue;
         return totalRevenue;
     }
 
@@ -63,13 +66,13 @@ public class Park {
         this.totalRevenue = totalRevenue;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
+//    public String getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(String date) {
+//        this.date = date;
+//    }
 
     public List<Visitor> getVisitors() {
         return visitors;
@@ -103,5 +106,11 @@ public class Park {
         this.id = id;
     }
 
+    public int getVisitorCount() {
+        return visitorCount;
+    }
 
+    public void setVisitorCount(int visitorCount) {
+        this.visitorCount = visitorCount;
+    }
 }
