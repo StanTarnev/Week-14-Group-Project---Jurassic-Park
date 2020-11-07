@@ -62,9 +62,11 @@ componentDidMount(){
 }
 
 addVisitors() {
+  const updatedVisitors = this.state.visitors + 1;
+  const updatedRevenue = this.state.revenue + 5;
   this.setState({
-    visitors: this.state.visitors +=1,
-    revenue: this.state.revenue += 5
+    visitors: updatedVisitors,
+    revenue: updatedRevenue
   });
 }
 
@@ -218,8 +220,8 @@ handleFeedDinosaur(id, dinosaur){
 
           {/* VIEW A PADDOCK BY ID */}
             <Route exact path="/paddocks/:id" render={(props) => {
-              const dino_id = props.match.params.id;
-              const dinosaur = this.findDinosaurById(dino_id);
+              // const dino_id = props.match.params.id;
+              // const dinosaur = this.findDinosaurById(dino_id);
               const id = props.match.params.id;
               const paddock = this.findPaddockById(id);
               return <PaddockDetails

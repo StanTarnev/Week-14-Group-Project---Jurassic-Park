@@ -22,8 +22,9 @@ class Dinosaur extends Component{
   }
 
   increaseHunger(){
+    const updatedBelly = this.state.belly + 1;
     this.setState({
-      belly: this.state.belly += 1
+      belly: updatedBelly
     })
     if (this.state.belly >= 15) {
       this.props.dinosaurPassesAway();
