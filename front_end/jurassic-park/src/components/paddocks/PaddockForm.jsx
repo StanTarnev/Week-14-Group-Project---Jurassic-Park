@@ -19,8 +19,8 @@ const PaddockForm = (props) => {
       <input type="text" required="required" placeholder="Name" name="name"/>
       <input type="number" min="1" required="required" placeholder="Capacity" name="capacity"/>
       <select required="required" name="type">Type:
-        <option value="herbivore">Herbivores Only</option>
-        <option value="carnivore">Carnivores Only</option>
+        <option value="Herbivore">Herbivores Only</option>
+        <option value="Carnivore">Carnivores Only</option>
       </select>
       <button type="submit">Save</button>
       </form>

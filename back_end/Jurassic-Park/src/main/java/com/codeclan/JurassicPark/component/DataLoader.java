@@ -42,14 +42,14 @@ public class DataLoader implements ApplicationRunner{
 
         park.addVisitors(visitor1);
 
-        Paddock paddock1 = new Paddock("Jungle","carnivore", 4);
-        Paddock paddock2 = new Paddock("Rainforest","herbivore", 4);
+        Paddock paddock1 = new Paddock("Jungle","Carnivore", 4);
+        Paddock paddock2 = new Paddock("Rainforest","Herbivore", 4);
         paddockRepository.save(paddock1);
         paddockRepository.save(paddock2);
 
 
-        Dinosaur dinosaur1= new Dinosaur("Georgina","Cerasinops",5,"Female","herbivore",paddock1);
-        Dinosaur dinosaur2= new Dinosaur("David", "Microceratops",10,"Male","carnivore",paddock1);
+        Dinosaur dinosaur1= new Dinosaur("Georgina","Cerasinops",5,"Female","Herbivore",paddock1);
+        Dinosaur dinosaur2= new Dinosaur("David", "Microceratops",10,"Male","Carnivore",paddock1);
 
 
         dinosaurRepository.save(dinosaur1);

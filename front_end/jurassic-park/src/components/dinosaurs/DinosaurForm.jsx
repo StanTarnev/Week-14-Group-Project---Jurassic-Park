@@ -41,8 +41,8 @@ const DinosaurForm = (props) => {
         <option value="male">Male</option>
       </select>
       <select required="required" name="type">Type:
-        <option value="herbivore">Herbivore</option>
-        <option value="carnivore">Carnivore</option>
+        <option value="Herbivore">Herbivore</option>
+        <option value="Carnivore">Carnivore</option>
       </select>
       <select required="required" name="paddock">
         {options}
