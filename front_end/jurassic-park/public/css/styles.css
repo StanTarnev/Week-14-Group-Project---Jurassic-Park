@@ -175,3 +175,7 @@ button:hover {
 button {
   padding-bottom: 2px;
 }
+
+span {
+  text-decoration: underline;
+}

@@ -166,7 +166,7 @@ class MainContainer extends Component {
       <Route exact path="/" render={(props) => {
         return (
           <Fragment>
-            <div className="main-container">            
+            <div className="main-container">
               <div className="dinosaur-container">
                 <DinosaurContainer dinosaurs={this.state.dinosaurs}/>
               </div>
@@ -174,14 +174,14 @@ class MainContainer extends Component {
               <div id="stats" className="component">
                 <h3>Today's Date:</h3>
                 <h3>{this.state.date}</h3>
-                <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
+                <p><span>Total Revenue:</span> £ {this.state.park.totalRevenue}</p>
                 <div className="buttons">
                   <button onClick={this.toggleOpenClose}>
                     {(this.state.parkOpen) ? "Close Park" : "Open Park"}
                   </button>
                 </div>
-                <p>Visitor Count: {this.state.visitors}</p>
-                <p>Daily Revenue: £{this.state.revenue}</p>
+                <p><span>Visitor Count:</span> {this.state.visitors}</p>
+                <p><span>Daily Revenue:</span> £{this.state.revenue}</p>
               </div>
 
               <div className="paddock-container">
