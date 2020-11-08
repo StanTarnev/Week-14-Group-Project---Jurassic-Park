@@ -166,8 +166,8 @@ class MainContainer extends Component {
       <Route exact path="/" render={(props) => {
         return (
           <Fragment>
-            <div className="main-container">
-              <div className="dinosaur-paddock-container">
+            <div className="main-container">            
+              <div className="dinosaur-container">
                 <DinosaurContainer dinosaurs={this.state.dinosaurs}/>
               </div>
 
@@ -184,7 +184,7 @@ class MainContainer extends Component {
                 <p>Daily Revenue: £{this.state.revenue}</p>
               </div>
 
-              <div className="dinosaur-paddock-container">
+              <div className="paddock-container">
                 <PaddockContainer paddocks={this.state.paddocks}/>
               </div>
             </div>
