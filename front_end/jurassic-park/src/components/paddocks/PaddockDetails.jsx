@@ -13,7 +13,7 @@ const PaddockDetails = (props) => {
         <h3>Paddock Details</h3>
         <Paddock paddock={props.paddock}/>
         <div className="buttons">
-          <button onClick={handlePaddockDelete}>Delete Paddock</button>
+          <button onClick={handlePaddockDelete}>Remove Paddock</button>
         </div>
       </div>
     </div>

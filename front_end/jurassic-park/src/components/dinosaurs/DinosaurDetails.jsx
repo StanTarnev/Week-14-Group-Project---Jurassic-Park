@@ -57,7 +57,7 @@ const DinosaurDetails = (props) => {
             </select>
             <button type="submit">Transfer Paddock</button>
           </form>
-          <button onClick={handleDinosaurDelete}>Delete Dinosaur</button>
+          <button onClick={handleDinosaurDelete}>Remove Dinosaur</button>
         </div>
       </div>
     </div>
