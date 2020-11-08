@@ -48,7 +48,7 @@ body {
 
 .component {
   border: 1px solid black;
-  margin: 20px auto;
+  margin: 5px;
   padding: 20px;
   background-color: white;
   border-radius: 8px;
@@ -94,8 +94,8 @@ h3 {
   margin: 20px;
   padding: 10px;
   background-color: #d1c4b4;
-  height: fit-content;
-  width: fit-content;
+  height: max-content;
+  width: max-content;
 }
 
 .paddock-container {
@@ -105,8 +105,8 @@ h3 {
   margin: 20px;
   padding: 10px;
   background-color: #d1c4b4;
-  height: fit-content;
-  width: fit-content;
+  height: max-content;
+  width: max-content;
 }
 
 .form {
