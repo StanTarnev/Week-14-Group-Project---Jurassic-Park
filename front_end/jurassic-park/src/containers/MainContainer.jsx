@@ -167,31 +167,25 @@ class MainContainer extends Component {
         return (
           <Fragment>
             <div className="main-container">
-              <div className="main-container-element">
-                <div className="dinosaur-paddock-container">
-                  <DinosaurContainer dinosaurs={this.state.dinosaurs}/>
-                </div>
+              <div className="dinosaur-paddock-container">
+                <DinosaurContainer dinosaurs={this.state.dinosaurs}/>
               </div>
 
-              <div className="main-container-element">
-                <div id="stats" className="component">
-                  <h3>Today's Date:</h3>
-                  <h3>{this.state.date}</h3>
-                  <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
-                  <div className="buttons">
-                    <button onClick={this.toggleOpenClose}>
-                      {(this.state.parkOpen) ? "Close Park" : "Open Park"}
-                    </button>
-                  </div>
-                  <p>Visitor Count: {this.state.visitors}</p>
-                  <p>Daily Revenue: £{this.state.revenue}</p>
+              <div id="stats" className="component">
+                <h3>Today's Date:</h3>
+                <h3>{this.state.date}</h3>
+                <p>Total Revenue: £ {this.state.park.totalRevenue}</p>
+                <div className="buttons">
+                  <button onClick={this.toggleOpenClose}>
+                    {(this.state.parkOpen) ? "Close Park" : "Open Park"}
+                  </button>
                 </div>
+                <p>Visitor Count: {this.state.visitors}</p>
+                <p>Daily Revenue: £{this.state.revenue}</p>
               </div>
 
-              <div className="main-container-element">
-                <div className="dinosaur-paddock-container">
-                  <PaddockContainer paddocks={this.state.paddocks}/>
-                </div>
+              <div className="dinosaur-paddock-container">
+                <PaddockContainer paddocks={this.state.paddocks}/>
               </div>
             </div>
           </Fragment>
