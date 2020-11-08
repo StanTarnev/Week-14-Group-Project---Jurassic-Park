@@ -60,6 +60,10 @@ body {
   margin-right: auto;
 }
 
+.paddock-details-container {
+  margin-top: 47px;
+}
+
 li {
   list-style: none;
 }
