@@ -105,19 +105,13 @@ h3 {
   padding: 10px;
   background-color: #d1c4b4;
   height: max-content;
-  max-width: 28%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* .paddock-container {
-  flex-direction: row;
-  border: 1px solid black;
-  border-radius: 8px;
-  margin: 20px;
-  padding: 10px;
-  background-color: #d1c4b4;
-  height: max-content;
-  max-width: 28%;
-} */
+.dinosaur-paddock-wrapper {
+  width: 40%;
+}
 
 .form {
     margin: auto;
@@ -131,7 +125,7 @@ h3 {
 .container-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 #chart_div {
