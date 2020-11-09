@@ -71,7 +71,7 @@ class Dinosaur extends Component{
             <td>{this.props.dinosaur.paddock.name}</td>
           </tr>
           <tr>
-            <td colspan="2"><img src={this.props.dinosaur.img} alt="dinosaur"/></td>
+            <td colspan="2"><img className="dinosaur-image" src={this.props.dinosaur.img} alt="dinosaur"/></td>
           </tr>
         </table>
       </div>

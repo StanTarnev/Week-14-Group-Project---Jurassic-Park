@@ -140,10 +140,15 @@ h3 {
 
 #element {
   background-color: white;
+  width: min-content;
 }
 
 #stats, #dinosaur-details, #dashboard-container, #paddock-details {
   background-color: #d1c4b4;
+}
+
+#dinosaur-details {
+  width: min-content;
 }
 
 #stats {
@@ -179,4 +184,8 @@ button {
 
 span {
   text-decoration: underline;
+}
+
+.dinosaur-image {
+  max-width: 400px;
 }
