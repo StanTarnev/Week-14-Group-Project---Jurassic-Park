@@ -140,14 +140,14 @@ h3 {
 
 #element {
   background-color: white;
-  width: min-content;
+  width: max-content;
 }
 
 #stats, #dinosaur-details, #dashboard-container, #paddock-details {
   background-color: #d1c4b4;
 }
 
-#dinosaur-details {
+#dinosaur-details, #paddock-details {
   width: min-content;
 }
 
