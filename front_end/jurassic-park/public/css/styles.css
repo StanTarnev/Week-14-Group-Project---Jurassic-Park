@@ -1,5 +1,7 @@
 .navLink {
   display: inline;
+  font-weight: bold;
+  text-transform: full-width;
 }
 header {
   background-color: #d1c4b4;
@@ -19,7 +21,6 @@ header * {
 }
 header img {
   height: 80px;
-  margin-left: 40px;
 }
 header li {
   margin: 20px;

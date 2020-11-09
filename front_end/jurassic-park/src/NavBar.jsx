@@ -9,12 +9,8 @@ const NavBar = (props) => {
 
         <ul>
           <li className="navLink">
-            <a href="/">View Park</a>
+            <a href="/">HOME</a>
           </li>
-          <li className="navLink">
-            <a href="/dashboard">View Dashboard</a>
-          </li>
-        
         </ul>
 
     </header>
