@@ -97,7 +97,7 @@ h3 {
   text-align: center;
 }
 
-.dinosaur-container {
+.dinosaur-paddock-container {
   flex-direction: row;
   border: 1px solid black;
   border-radius: 8px;
@@ -108,7 +108,7 @@ h3 {
   max-width: 28%;
 }
 
-.paddock-container {
+/* .paddock-container {
   flex-direction: row;
   border: 1px solid black;
   border-radius: 8px;
@@ -117,7 +117,7 @@ h3 {
   background-color: #d1c4b4;
   height: max-content;
   max-width: 28%;
-}
+} */
 
 .form {
     margin: auto;

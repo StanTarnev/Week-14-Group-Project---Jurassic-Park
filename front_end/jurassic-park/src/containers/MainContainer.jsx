@@ -167,7 +167,7 @@ class MainContainer extends Component {
         return (
           <Fragment>
             <div className="main-container">
-              <div className="dinosaur-container">
+              <div className="dinosaur-paddock-container">
                 <DinosaurContainer dinosaurs={this.state.dinosaurs}/>
               </div>
 
@@ -184,7 +184,7 @@ class MainContainer extends Component {
                 <p><span>Daily Revenue:</span> £{this.state.revenue}</p>
               </div>
 
-              <div className="paddock-container">
+              <div className="dinosaur-paddock-container">
                 <PaddockContainer paddocks={this.state.paddocks}/>
               </div>
             </div>
