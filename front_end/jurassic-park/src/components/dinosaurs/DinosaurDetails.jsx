@@ -50,7 +50,7 @@ const DinosaurDetails = (props) => {
           <form onSubmit={handleSubmit}>
             <button type="submit">Feed Dinosaur</button>
           </form>
-          <form onSubmit={handleTransferSubmit}>
+          <form id="transfer-button" onSubmit={handleTransferSubmit}>
             <select name="paddock">
             <option selected disabled value="none">Select a paddock</option>
               {options}
