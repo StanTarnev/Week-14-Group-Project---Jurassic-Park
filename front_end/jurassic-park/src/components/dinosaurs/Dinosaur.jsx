@@ -30,8 +30,6 @@ class Dinosaur extends Component{
       this.props.dinosaurPassesAway();
       alert("You have lost a dinosaur due to malnutrition!")
     }
-    // this.props.dinosaur.belly += 1;
-    // this.hungerTimer = setInterval(() => 1000);
   }
 
   render() {
