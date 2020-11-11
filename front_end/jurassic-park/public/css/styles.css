@@ -148,6 +148,8 @@ h3 {
 #stats {
   min-width: 160px;
   padding-top: 10px;
+  height: max-content;
+  margin-top: 20px;
 }
 
 #curve-chart {
