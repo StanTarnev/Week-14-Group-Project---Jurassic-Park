@@ -41,7 +41,7 @@ $ npm start
 
 ```
 $ sudo -u postgres -i
-$ psql powerup
+$ psql jurassicparkmanagement
 ```
 
 ## Authors
